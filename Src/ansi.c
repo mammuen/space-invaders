@@ -6,10 +6,9 @@
  */
 
 #define ESC 0x1B
+
 #include "ansi.h"
-
-
-
+#include <stdio.h>
 
 
 void fgcolor(uint8_t foreground) {
@@ -110,103 +109,50 @@ void inverse(uint8_t on){
 	}
 }
 
-void window(uint8_t x1 , uint8_t y1, uint8_t x2, uint8_t y2){
 
-	int i;
-	uint8_t width = x2-x1;
-	uint8_t heigth= y2-y1;
+void drawAsciiWindow(Point *point1, Point *point2 , int style) {
+	//draw an ascii window in the terminal
+	int x1 = point1->x;
+	int x2 = point2->x;
+	int y1 = point1->y;
+	int y2 = point2->y;
+	int w = x2 - x1;
+	int h = y2 - y1;
 
-	gotoxy(x1,y1);
-	printf("%c", 218);
-	printf("%c", 180);
-
-	color(15,4);
-	char text[12] = "window name";
-
-	for(i = 0; i < 12; i++){
-		printf("%c", text[i]);
+	//draw the top line
+	for (int i = 0; i < w+1; i++) {
+		gotoxy(x1 + i, y1);
+		if (i == 0) {
+			printf("%c", 218); // topleft corner
+		} else if (i == w) {
+			printf("%c", 191); // topright corner
+		} else {
+			printf("%c", 196); // horizontal line
+		}
 	}
 
-	for(i = 11; i < width-2; i++){
-		printf("%c", 32);
+	//draw the sides
 
-	}
-	color(15,0);
+	for (int i = 1; i < h; i++) {
+			gotoxy(x1, y1 + i);
+			printf("%c", 179);
 
-	printf("%c", 195);
-	printf("%c", 191);
+			gotoxy(x2, y1 + i);
+			printf("%c", 179);
+			}
 
+	//draw the bottom line
+	for (int i = 0; i < w+1; i++) {
+				gotoxy(x1 + i, y2);
+				if (i == w) {
+					printf("%c", 217); // bottomright corner
+				} else if (i == 0) {
+					printf("%c", 192); // bottomleft corner
+				} else {
+					printf("%c", 196); // horizontal line
+				}
+			}
 
-	for(i = 1; i < heigth; i++){
-	gotoxy(x1,y1+i);
-	printf("%c", 179);
-	}
-
-	for(i = 1; i < heigth; i++){
-	gotoxy(x2+1,y1+i);
-	printf("%c", 179);
-	}
-
-	gotoxy(x1,y2);
-	printf("%c", 192);
-	for(i = 0; i < width; i++){
-		printf("%c", 196);
-
-	}
-	printf("%c", 217);
 
 }
-
-void window2(uint8_t x1 , uint8_t y1, uint8_t x2, uint8_t y2){
-
-	int i;
-	uint8_t width = x2-x1;
-	uint8_t heigth= y2-y1;
-
-	gotoxy(x1,y1);
-	printf("%c", 218);
-	printf("%c", 180);
-
-	char text[12] = "window name";
-
-
-	inverse(1);
-	for(i = 0; i < 12; i++){
-		printf("%c", text[i]);
-	}
-	inverse(0);
-
-	printf("%c", 195);
-
-
-	for(i = 11; i < width-2; i++){
-		printf("%c", 196);
-
-	}
-
-	printf("%c", 191);
-
-
-	for(i = 1; i < heigth; i++){
-	gotoxy(x1,y1+i);
-	printf("%c", 179);
-	}
-
-	for(i = 1; i < heigth; i++){
-	gotoxy(x2+1,y1+i);
-	printf("%c", 179);
-	}
-
-	gotoxy(x1,y2);
-	printf("%c", 192);
-	for(i = 0; i < width; i++){
-		printf("%c", 196);
-
-	}
-	printf("%c", 217);
-
-}
-
-
-
 
