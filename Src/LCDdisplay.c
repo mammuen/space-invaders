@@ -8,6 +8,14 @@
 #include "LCDdisplay.h"
 
 
+char heart[5] = {0x70, 0x88, 0x44, 0x88, 0x70};
+
+
+void drawHearts(uint8_t num){
+
+
+}
+
 
 void displayString(uint8_t* array, int x, int y){
 	int length = strlen(array);
