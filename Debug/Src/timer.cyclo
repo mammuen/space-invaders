@@ -1,3 +1,0 @@
-/home/markus/STM32CubeIDE/workspace_1.14.0/project_30010/space-invaders/cmsis/core_cm4.h:1071:22:NVIC_EnableIRQ	1
-/home/markus/STM32CubeIDE/workspace_1.14.0/project_30010/space-invaders/cmsis/core_cm4.h:1156:22:NVIC_SetPriority	2
-../Src/timer.c:12:6:timerInit	1
