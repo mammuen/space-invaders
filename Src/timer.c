@@ -11,7 +11,7 @@
 
 void timerInit(){
 
-
+	RCC ->APBWENR |= RCC_APB2Periph_TIM15;
 
 
 
