@@ -27,25 +27,9 @@ int main(void) {
 	uart_init(460800);
 	hideCursor();
 
-	//variables
-	int c = 0;
 
-	//main loop
-	while (1) {
+	    while (1) {
 
-
-		drawGameDisplay();
-
-		//clear the screen
-		if(c%1000 == 0) {
-			clrscr();
-		}
-
-		if (c == 10000000000) {
-			c = 0;
-		} else {
-			c++;
-		}
+	    }
 	}
 
-}
