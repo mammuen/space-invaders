@@ -11,7 +11,23 @@
 char heart[5] = {0x70, 0x88, 0x44, 0x88, 0x70};
 
 
-void drawHearts(uint8_t num){
+
+void drawHearts(uint8_t num, uint8_t x, uint8_t y){
+
+	x = x%(128-(length+1)*4);
+	y = y%4;
+
+
+	for(int i = 0; i < 5; i++){
+
+		format[ i*5  + 0 + x + y*128] = heart[0];
+		format[(i*5) + 1 + x + y*128] = heart[1];
+		format[(i*5) + 2 + x + y*128] = heart[2];
+		format[(i*5) + 3 + x + y*128] = heart[3];
+		format[(i*5) + 4 + x + y*128] = heart[4];
+
+	}
+	lcd_push_buffer(format);
 
 
 }
@@ -44,6 +60,15 @@ void displayString(uint8_t* array, int x, int y){
 	}
 	lcd_push_buffer(format);
 
+}
+
+
+void clrsrcn(){
+	char array[512];
+
+	memset(array, 0xFF, 512);
+
+	lcd_push_buffer(array);
 }
 
 
