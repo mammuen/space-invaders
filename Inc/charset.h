@@ -38,8 +38,6 @@ Note:
 #ifndef _CHARSET_H_
 #define _CHARSET_H_
 
-
-void displayString(uint8_t* array, int x, int y);
 extern const char character_data[95][5];
 
 #endif /*! _ACHARSET_H_ */
