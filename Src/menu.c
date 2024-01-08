@@ -7,6 +7,7 @@
 
 #include "menu.h"
 #include "stm32f30x.h"
+#include "game.h"
 
 void menuSelect(){
 

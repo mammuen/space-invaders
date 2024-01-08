@@ -7,11 +7,11 @@
 #include "LCDdisplay.h"
 #include <stdio.h>
 #include <string.h>
-<<<<<<< Updated upstream
+
+
 #include "LCDdisplay.h"
 #include "game.h"
-=======
->>>>>>> Stashed changes
+
 
 
 int main(void) {
