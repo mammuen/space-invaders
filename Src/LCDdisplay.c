@@ -8,6 +8,28 @@
 #include "LCDdisplay.h"
 
 
+
+/*
+
+	char hearts[4] = {128,128,128, '\0'};
+	char bullets[5] = {130,130,130,129, '\0'};
+	uint8_t LCD[512];
+	LCDclrsrcn(LCD,0);
+	stringAdd(LCD,hearts,0,0);
+	hearts[2] = 95+32;
+	stringAdd(LCD,hearts,0,0);
+
+	stringAdd(LCD,"SCORE : 105",0,1);
+	stringAdd(LCD, bullets,0,2);
+
+*/
+
+
+
+
+
+
+
 char heart[5] = {0x0E, 0x11, 0x22, 0x11, 0x0E};
 
 
