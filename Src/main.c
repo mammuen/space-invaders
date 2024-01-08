@@ -6,6 +6,10 @@
 #include <string.h>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+#include "LCDdisplay.h"
+>>>>>>> Stashed changes
 =======
 #include "LCDdisplay.h"
 >>>>>>> Stashed changes
