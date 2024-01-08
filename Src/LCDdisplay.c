@@ -5,6 +5,8 @@
  *      Author: markus
  */
 
+#include "LCDdisplay.h"
+
 void displayString(uint8_t* array, int x, int y){
 	int length = strlen(array);
 	int arr[512];
