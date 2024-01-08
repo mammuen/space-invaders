@@ -7,11 +7,11 @@
 
 #include "ansi.h"
 #include <stdio.h>
-#include<string.h>
+#include <string.h>
 
 void drawGameDisplay() {
-    Point p1 = {5, 5};
-    Point p2 = {15, 10};
+    Point p1 = {1, 1};
+    Point p2 = {180, 50};
     int style = 1;
 
     drawAsciiWindow(&p1, &p2, style);
