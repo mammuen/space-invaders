@@ -4,6 +4,7 @@
 #include "charset.h"
 #include <stdio.h>
 #include <string.h>
+<<<<<<< Updated upstream
 
 void drawGameDisplay() {
     Point p1 = {1, 1};
@@ -20,6 +21,9 @@ void showCursor() {
 void hideCursor() {
 	 fputs("\033[?25l", stdout); // Hide cursor
 }
+=======
+#include "game.h"
+>>>>>>> Stashed changes
 
 int main(void) {
 

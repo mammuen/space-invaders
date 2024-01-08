@@ -1,0 +1,9 @@
+game.c:12:6:drawGameDisplay	32	static
+game.c:20:6:showCursor	8	static
+game.c:24:6:hideCursor	8	static
+game.c:28:6:drawPlayer	4	static
+game.c:32:6:updatePlayer	4	static
+game.c:36:6:getKeystrokes	4	static
+game.c:40:6:drawAsteroid	4	static
+game.c:44:6:updateAsteroid	4	static
+game.c:48:6:initAsteroid	4	static
