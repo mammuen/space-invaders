@@ -16,9 +16,6 @@ int main(void) {
 	//setup
 	uart_init(460800);
 	hideCursor();
-	lcd_init();
-
-
 
 	    while (1) {
 

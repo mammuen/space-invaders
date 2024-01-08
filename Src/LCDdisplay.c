@@ -8,7 +8,66 @@
 #include "LCDdisplay.h"
 
 
+
+/*
+ *
+ *
+ *  this is how to use the LCDdisplay
+ *  call the first functions to initalize the LCD and save a
+ *  location where to save the memory of the LCD then use StringAdd
+ *  like shown
+ *
+ *  stringAdd(LCD, "some string", xpos, ypos);
+ *
+ *  the LCD always has to be in there or it wont work
+
+	uint8_t* LCD = initalize_LCD();
+	stringAdd(LCD,"SCORE : 1050",0,2);
+	free(LCD);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 char heart[5] = {0x0E, 0x11, 0x22, 0x11, 0x0E};
+
+
+void stringAdd(uint8_t* LCD, char* text, uint8_t x, uint8_t y){
+
+
+
+
+	uint8_t length = strlen(text);
+
+	x = x%(128);
+	y = y%4;
+
+	uint16_t arr[ 20 ];
+	memset(arr,0,10);
+
+	for(int p = 0; p < length; p++){
+		arr[p] = ((uint16_t) text[p] - 32);
+	}
+
+	for(int i = 0; i < length; i++){
+		LCD[ i*5  + 0 + x + y*128] = character_data[ arr[i] ][0];
+		LCD[(i*5) + 1 + x + y*128] = character_data[ arr[i] ][1];
+		LCD[(i*5) + 2 + x + y*128] = character_data[ arr[i] ][2];
+		LCD[(i*5) + 3 + x + y*128] = character_data[ arr[i] ][3];
+		LCD[(i*5) + 4 + x + y*128] = character_data[ arr[i] ][4];
+	}
+	lcd_push_buffer(LCD);
+}
 
 
 
@@ -38,7 +97,7 @@ void drawHearts(uint8_t num, uint8_t x, uint8_t y){
 
 
 void displayString(uint8_t* array, int x, int y){
-	uint8_t length = strlen(array);
+	int8_t length = strlen(array);
 	int arr[512];
 
 	for(int p = 0; p < length; p++){
@@ -64,10 +123,22 @@ void displayString(uint8_t* array, int x, int y){
 }
 
 
-void LCDclrsrcn(uint8_t *LCD,uint8_t fill){
+void LCDclrscrn(uint8_t *LCD,uint8_t fill){
 	memset(LCD, fill, 512);
 	lcd_push_buffer(LCD);
 }
+
+uint8_t* initalize_LCD(){
+	lcd_init();
+	uint8_t* LCD = (uint8_t*) malloc(512);
+	LCDclrscrn(LCD,0);
+
+
+	return LCD;
+}
+
+
+
 
 
 //the first 95 are characters and the data[95] is the heart and data[96 is full heart]
