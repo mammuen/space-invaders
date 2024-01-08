@@ -4,34 +4,9 @@
 #include "charset.h"
 #include <stdio.h>
 #include <string.h>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 #include "LCDdisplay.h"
->>>>>>> Stashed changes
-=======
-#include "LCDdisplay.h"
->>>>>>> Stashed changes
-
-void drawGameDisplay() {
-    Point p1 = {1, 1};
-    Point p2 = {180, 50};
-    int style = 1;
-
-    drawAsciiWindow(&p1, &p2, style);
-}
-
-void showCursor() {
-        fputs("\033[?25h", stdout); // Show cursor
-    }
-
-void hideCursor() {
-	 fputs("\033[?25l", stdout); // Hide cursor
-}
-=======
 #include "game.h"
->>>>>>> Stashed changes
+
 
 int main(void) {
 
