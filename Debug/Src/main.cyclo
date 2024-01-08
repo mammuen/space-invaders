@@ -1,0 +1,4 @@
+../Src/main.c:8:6:drawGameDisplay	1
+../Src/main.c:16:6:showCursor	1
+../Src/main.c:20:6:hideCursor	1
+../Src/main.c:24:5:main	2
