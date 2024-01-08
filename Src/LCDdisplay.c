@@ -8,29 +8,11 @@
 #include "LCDdisplay.h"
 
 
-
-/*
-
-	char hearts[4] = {128,128,128, '\0'};
-	char bullets[5] = {130,130,130,129, '\0'};
-	uint8_t LCD[512];
-	LCDclrsrcn(LCD,0);
-	stringAdd(LCD,hearts,0,0);
-	hearts[2] = 95+32;
-	stringAdd(LCD,hearts,0,0);
-
-	stringAdd(LCD,"SCORE : 105",0,1);
-	stringAdd(LCD, bullets,0,2);
-
-*/
-
-
-
-
-
-
-
 char heart[5] = {0x0E, 0x11, 0x22, 0x11, 0x0E};
+
+
+
+
 
 
 
@@ -39,23 +21,19 @@ void drawHearts(uint8_t num, uint8_t x, uint8_t y){
 	x = x%(128);
 	y = y%4;
 
-	char format[128];
+
+	uint8_t format[128];
 	memset(format,0,128);
 
 
-
-	for(int i = 0; i < num; i++){
-
+	for(int i = 0; i < 4; i++){
 		format[ i*5  + 0 + x + y*128] = heart[0];
 		format[(i*5) + 1 + x + y*128] = heart[1];
 		format[(i*5) + 2 + x + y*128] = heart[2];
 		format[(i*5) + 3 + x + y*128] = heart[3];
 		format[(i*5) + 4 + x + y*128] = heart[4];
-
 	}
 	lcd_push_buffer(format);
-
-
 }
 
 
@@ -71,7 +49,6 @@ void displayString(uint8_t* array, int x, int y){
 	y = y%4;
 
 
-
 	uint8_t format[512];
 	memset(format,0,512);
 
@@ -82,22 +59,19 @@ void displayString(uint8_t* array, int x, int y){
 		format[(i*5) + 2 + x + y*128] = character_data[ arr[i] ][2];
 		format[(i*5) + 3 + x + y*128] = character_data[ arr[i] ][3];
 		format[(i*5) + 4 + x + y*128] = character_data[ arr[i] ][4];
-
 	}
 	lcd_push_buffer(format);
-
 }
 
 
-void clrsrcn(){
-	uint8_t array[512];
-	memset(array, 0x00, 512);
-	lcd_push_buffer(array);
+void LCDclrsrcn(uint8_t *LCD,uint8_t fill){
+	memset(LCD, fill, 512);
+	lcd_push_buffer(LCD);
 }
 
 
-
-const char character_data[95][5] = {
+//the first 95 are characters and the data[95] is the heart and data[96 is full heart]
+const char character_data[99][5] = {
   {0x00, 0x00, 0x00, 0x00, 0x00},
   {0x00, 0x5F, 0x5F, 0x00, 0x00},
   {0x00, 0x07, 0x00, 0x07, 0x00},
@@ -192,6 +166,11 @@ const char character_data[95][5] = {
   {0x00, 0x08, 0x36, 0x41, 0x00},
   {0x00, 0x00, 0x7F, 0x00, 0x00},
   {0x00, 0x41, 0x36, 0x08, 0x00},
-  {0x08, 0x04, 0x08, 0x10, 0x08}};
+  {0x08, 0x04, 0x08, 0x10, 0x08},
+  {0x0E, 0x11, 0x22, 0x11, 0x0E},
+  {0x0E, 0x1F, 0x7E, 0x1F, 0x0E},
+  {0xF8, 0x86, 0x81, 0x86, 0xF8},
+  {0xF8, 0xFE, 0xFF, 0xFE, 0xF8}
+};
 
 
