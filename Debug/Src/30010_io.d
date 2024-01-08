@@ -1,13 +1,13 @@
-Src/timer.o: ../Src/timer.c \
- C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/timer.h \
+Src/30010_io.o: ../Src/30010_io.c \
+ C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/30010_io.h \
+ C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/stm32f30x_conf.h \
+ C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_adc.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/stm32f30x.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/cmsis/core_cm4.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/cmsis/core_cmInstr.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/cmsis/core_cmFunc.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/cmsis/core_cm4_simd.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/system_stm32f30x.h \
- C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/stm32f30x_conf.h \
- C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_adc.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_can.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_crc.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_comp.h \
@@ -30,7 +30,11 @@ Src/timer.o: ../Src/timer.c \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_wwdg.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_misc.h
 
-C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/timer.h:
+C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/30010_io.h:
+
+C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/stm32f30x_conf.h:
+
+C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_adc.h:
 
 C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/stm32f30x.h:
 
@@ -43,10 +47,6 @@ C:/Users/doube/Desktop/Code/30010/space-invaders/cmsis/core_cmFunc.h:
 C:/Users/doube/Desktop/Code/30010/space-invaders/cmsis/core_cm4_simd.h:
 
 C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/system_stm32f30x.h:
-
-C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/stm32f30x_conf.h:
-
-C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_adc.h:
 
 C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_can.h:
 

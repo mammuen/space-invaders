@@ -1,5 +1,5 @@
-Src/timer.o: ../Src/timer.c \
- C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/timer.h \
+SPL/src/stm32f30x_flash.o: ../SPL/src/stm32f30x_flash.c \
+ C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_flash.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/stm32f30x.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/cmsis/core_cm4.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/cmsis/core_cmInstr.h \
@@ -15,7 +15,6 @@ Src/timer.o: ../Src/timer.c \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_dbgmcu.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_dma.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_exti.h \
- C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_flash.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_gpio.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_syscfg.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_i2c.h \
@@ -30,7 +29,7 @@ Src/timer.o: ../Src/timer.c \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_wwdg.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_misc.h
 
-C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/timer.h:
+C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_flash.h:
 
 C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/stm32f30x.h:
 
@@ -61,8 +60,6 @@ C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_dbgmcu.h:
 C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_dma.h:
 
 C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_exti.h:
-
-C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_flash.h:
 
 C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_gpio.h:
 
