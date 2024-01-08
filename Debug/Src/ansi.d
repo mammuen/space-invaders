@@ -1,4 +1,3 @@
 Src/ansi.o: ../Src/ansi.c \
- /Users/oscar/Documents/c/30010/space-invaders/Inc/ansi.h
-
-/Users/oscar/Documents/c/30010/space-invaders/Inc/ansi.h:
+ /home/markus/STM32CubeIDE/workspace_1.14.0/project_30010/space-invaders/Inc/ansi.h
+/home/markus/STM32CubeIDE/workspace_1.14.0/project_30010/space-invaders/Inc/ansi.h:

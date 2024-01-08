@@ -1,4 +1,3 @@
 Src/charset.o: ../Src/charset.c \
- /Users/oscar/Documents/c/30010/space-invaders/Inc/charset.h
-
-/Users/oscar/Documents/c/30010/space-invaders/Inc/charset.h:
+ /home/markus/STM32CubeIDE/workspace_1.14.0/project_30010/space-invaders/Inc/charset.h
+/home/markus/STM32CubeIDE/workspace_1.14.0/project_30010/space-invaders/Inc/charset.h:

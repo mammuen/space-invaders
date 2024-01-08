@@ -27,4 +27,5 @@
 "./Src/syscalls.o"
 "./Src/sysmem.o"
 "./Src/system_stm32f30x.o"
+"./Src/timer.o"
 "./Startup/startup_stm32f302r8tx.o"
