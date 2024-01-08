@@ -8,17 +8,21 @@
 #include "LCDdisplay.h"
 
 
-char heart[5] = {0x70, 0x88, 0x44, 0x88, 0x70};
+char heart[5] = {0x0E, 0x11, 0x22, 0x11, 0x0E};
 
 
 
 void drawHearts(uint8_t num, uint8_t x, uint8_t y){
 
-	x = x%(128-(length+1)*4);
+	x = x%(128);
 	y = y%4;
 
+	char format[128];
+	memset(format,0,128);
 
-	for(int i = 0; i < 5; i++){
+
+
+	for(int i = 0; i < num; i++){
 
 		format[ i*5  + 0 + x + y*128] = heart[0];
 		format[(i*5) + 1 + x + y*128] = heart[1];
@@ -34,7 +38,7 @@ void drawHearts(uint8_t num, uint8_t x, uint8_t y){
 
 
 void displayString(uint8_t* array, int x, int y){
-	int length = strlen(array);
+	uint8_t length = strlen(array);
 	int arr[512];
 
 	for(int p = 0; p < length; p++){
@@ -64,10 +68,8 @@ void displayString(uint8_t* array, int x, int y){
 
 
 void clrsrcn(){
-	char array[512];
-
-	memset(array, 0xFF, 512);
-
+	uint8_t array[512];
+	memset(array, 0x00, 512);
 	lcd_push_buffer(array);
 }
 
