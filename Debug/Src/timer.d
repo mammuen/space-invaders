@@ -1,4 +1,5 @@
 Src/timer.o: ../Src/timer.c \
+<<<<<<< Updated upstream
  C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/timer.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/stm32f30x.h \
  C:/Users/doube/Desktop/Code/30010/space-invaders/cmsis/core_cm4.h \
@@ -89,3 +90,8 @@ C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_usart.h:
 C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_wwdg.h:
 
 C:/Users/doube/Desktop/Code/30010/space-invaders/SPL/inc/stm32f30x_misc.h:
+=======
+ C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/timer.h
+
+C:/Users/doube/Desktop/Code/30010/space-invaders/Inc/timer.h:
+>>>>>>> Stashed changes
