@@ -10,7 +10,11 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include "stm32f30x.h"
+#include "game.h"
 
-void menuSelect();
+void drawMenu(int selectedItem);
+void selectMenu();
+void delay(uint32_t count);
 
 #endif /* MENU_H_ */
