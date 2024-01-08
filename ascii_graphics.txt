@@ -1,17 +1,80 @@
+# player ship
 
 =__\
-  |o o)=--    # player ship
+  |o o)=--   
 =¯¯/
 
+#bullet
 
+-
 
-#asteroids
+## asteroids
 
-#big asteroid
+# big asteroid
 
  /“¯¯"x
 |_.-‘’ |
  \_ __/
      
-#small asteroid
+# medium asteroid
+
+ /##\
+ \##/
+
+# small asteroid
+
+ _
+(_)
+
+## enemies
+
+#alien
+
+ |_
+ [o]
+/|_|\
+_/ \_
+
+
+ .-.
+(O O)
+ \-/
+ / \
+U\ /U                  |
+ _H_
+
+
+#alien ship
+        ___
+     __|___|__
+    |_________|
+       /   \
+      /     \
+
+
+#alien ship 2
+
+        
+   -==E\___
+    ___|_o_|__
+   /_<_<__<__|
+
+
+#boss ship
+
+     ____
+ ___/    \___
+/   '----'   \
+'==________=='
+
+
+##stars
+                      |
+* o . + ´ ` ' : ; , - o -
+                      |
+
+
+
+
+
 
