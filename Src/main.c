@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include <string.h>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+#include "LCDdisplay.h"
+>>>>>>> Stashed changes
 
 void drawGameDisplay() {
     Point p1 = {1, 1};
