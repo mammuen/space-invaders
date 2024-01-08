@@ -11,7 +11,7 @@
 
 void timerInit(){
 
-	RCC ->APBWENR |= RCC_APB2Periph_TIM15;
+	RCC ->APB2ENR |= RCC_APB2Periph_TIM15;
 	TIM15->CR1 = TIM15->CR1 & ~(0x001); 	// turn off timer
 
 	TIM15->ARR = 999; 	// Set reload value
