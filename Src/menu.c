@@ -7,6 +7,8 @@
 
 #include "menu.h"
 #include "game.h"
+#include "ansi.h"
+#include "joystick.h"
 
 void delay(uint32_t count) {
     while (count--) {
@@ -33,35 +35,41 @@ void drawMenu(int selectedItem) {
 
 
     if (selectedItem == 1) {
-    	gotoxy(80,25);
+    	gotoxy(72,25);
         printf("      ___  _    ____ _   _ ");
-        gotoxy(80,26);
+        gotoxy(72,26);
         printf("__    |__] |    |__|  \\_/  ");
-        gotoxy(80,27);
+        gotoxy(72,27);
         printf("      |    |___ |  |   |   ");
 
-        gotoxy(80,28);
+        gotoxy(72,28);
         printf("      _  _ ____ _    ___  ");
-        gotoxy(80,29);
+        gotoxy(72,29);
         printf("      |__| |___ |    |__] ");
-        gotoxy(80,30);
+        gotoxy(72,30);
         printf("      |  | |___ |___ |    ");
 
     } else {
-        gotoxy(80, 25);
+        gotoxy(72, 25);
         printf("      ___  _    ____ _   _ ");
-        gotoxy(80, 26);
+        gotoxy(72, 26);
         printf("      |__] |    |__|  \\_/  ");
-        gotoxy(80, 27);
+        gotoxy(72, 27);
         printf("      |    |___ |  |   |   ");
 
-        gotoxy(80, 28);
+        gotoxy(72, 28);
         printf("      _  _ ____ _    ___  ");
-        gotoxy(80, 29);
+        gotoxy(72, 29);
         printf("__    |__| |___ |    |__] ");
-        gotoxy(80, 30);
+        gotoxy(72, 30);
         printf("      |  | |___ |___ |    ");
     }
+}
+
+void helpMenu(){
+	hideCursor();
+	setup();
+	drawGameDisplay();
 }
 
 void selectMenu(){
@@ -82,11 +90,23 @@ void selectMenu(){
 	            clrscr();// Move down in the menu
 	        }
 
+	        else if (joystickInput > 8 && selectedItem > 1) {
+	        	clrscr();
+	        	helpMenu();// Open help
+	        	break;
+	        }
+
+	        else if (joystickInput > 8 && selectedItem > 2) {
+	        	clrscr();
+	        	// Start game
+	        	break;
+	        }
+
 	        drawMenu(selectedItem);
 	        drawGameDisplay();
 
 	        delay(100000);
 	    }
-
-	    return 0;
 }
+
+

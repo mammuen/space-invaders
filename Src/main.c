@@ -7,6 +7,7 @@
 #include "LCDdisplay.h"
 #include <stdio.h>
 #include <string.h>
+#include "joystick.h"
 
 
 #include "LCDdisplay.h"
@@ -19,9 +20,12 @@ int main(void) {
 	//setup
 	uart_init(460800);
 	hideCursor();
+	setup();
+	selectMenu();
 
 
 	    while (1) {
+
 
 	    }
 	}
