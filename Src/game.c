@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 
-enemy* initEnemies() {
+enemy* initEnemy() {
     enemy* enemies = malloc(6 * sizeof(enemy));
 
     if (enemies != NULL) {
