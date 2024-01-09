@@ -27,7 +27,141 @@
 */
 
 
+void LCD_gameStart(uint8_t* LCD){
+	char hearts[4] = {128, 128, 128};
+	char bullets[6] = {130, 130, 130, 130, 130};
 
+	stringAdd(LCD, hearts,0,0 );
+	stringAdd(LCD, "Score: 0",0,1 );
+	stringAdd(LCD, bullets,0,3);
+}
+
+
+void setScore(uint8_t* LCD, uint8_t amount){
+
+	char* input = (char*) malloc(20*sizeof(char));
+	sprintf(input, "%d", amount);
+
+	LCDclrline(LCD, 1);
+
+
+	int length = strlen(input);
+
+	char string[20] = "Score: ";
+
+	for(int i =0; i < length; i++){
+		string[i+7] = input[i];
+	}
+	stringAdd(LCD, string,0,1 );
+
+	free(input);
+
+
+}
+
+
+
+
+void bulletamount(uint8_t* LCD, uint8_t amount){
+
+
+
+	switch(amount){
+	case 0:
+		bullet0(LCD);
+		break;
+	case 1:
+		bullet1(LCD);
+		break;
+	case 2:
+		bullet2(LCD);
+		break;
+	case 3:
+		bullet3(LCD);
+		break;
+	case 4:
+		bullet4(LCD);
+		break;
+	case 5:
+		bullet5(LCD);
+		break;
+	default:
+		bullet5(LCD);
+	}
+}
+
+void bullet0(uint8_t* LCD){
+	char bullets[6] = {129, 129, 129, 129, 129};
+	stringAdd(LCD, bullets,0,3 );
+}
+void bullet1(uint8_t* LCD){
+	char bullets[6] = {130, 129, 129, 129, 129};
+	stringAdd(LCD, bullets,0,3 );
+}
+void bullet2(uint8_t* LCD){
+	char bullets[6] = {130, 130, 129, 129, 129};
+	stringAdd(LCD, bullets,0,3 );
+}
+void bullet3(uint8_t* LCD){
+	char bullets[6] = {130, 130, 130, 129, 129};
+	stringAdd(LCD, bullets,0,3 );
+}
+void bullet4(uint8_t* LCD){
+	char bullets[6] = {130, 130, 130, 130, 129};
+	stringAdd(LCD, bullets,0,3 );
+}
+void bullet5(uint8_t* LCD){
+	char bullets[6] = {130, 130, 130, 130, 130};
+	stringAdd(LCD, bullets,0,3 );
+}
+
+
+
+
+
+
+void healthamount(uint8_t* LCD, uint8_t amount){
+
+	switch(amount){
+	case 0:
+		heart0(LCD);
+		break;
+	case 1:
+		heart1(LCD);
+		break;
+	case 2:
+		heart2(LCD);
+		break;
+	case 3:
+		heart3(LCD);
+		break;
+	default:
+		heart3(LCD);
+	}
+}
+
+
+void heart0(uint8_t* LCD){
+	char hearts[4] = {127, 127, 127};
+	stringAdd(LCD, hearts,0,0 );
+
+}
+
+void heart1(uint8_t* LCD){
+	char hearts[4] = {128, 127, 127};
+	stringAdd(LCD, hearts,0,0 );
+
+}
+void heart2(uint8_t* LCD){
+	char hearts[4] = {128, 128, 127};
+	stringAdd(LCD, hearts,0,0 );
+
+}
+void heart3(uint8_t* LCD){
+	char hearts[4] = {128, 128, 128};
+	stringAdd(LCD, hearts,0,0 );
+
+}
 
 
 
@@ -46,6 +180,7 @@ void stringAdd(uint8_t* LCD, char* text, uint8_t x, uint8_t y){
 
 	uint16_t arr[ 20 ];
 	memset(arr,0,10);
+
 
 	for(int p = 0; p < length; p++){
 		arr[p] = ((uint16_t) text[p] - 32);
@@ -88,6 +223,14 @@ void drawHearts(uint8_t num, uint8_t x, uint8_t y){
 }
 
 
+void LCDclrline(uint8_t *LCD,uint8_t liney){
+
+	for(int i= 0; i < 128; i++){
+		LCD[i+liney*128] = 0;
+	}
+
+	lcd_push_buffer(LCD);
+}
 
 
 void LCDclrscrn(uint8_t *LCD,uint8_t fill){

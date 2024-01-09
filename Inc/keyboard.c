@@ -24,30 +24,31 @@ char keyboardinput(){
 	char output = 0;
 
 	switch(input){
-	case 'd':
-		output = 0x8;
-		break;
 	case 'w':
-		output = 0x4;
-		break;
-	case 's':
-		output = 0x2;
+		output = 1;
 		break;
 	case 'a':
-		output = 0x1;
+		output = 2;
+		break;
+	case 's':
+		output = 3;
+		break;
+	case 'd':
+		output = 4;
 		break;
 	case 'p':
 		output = 100;
+		break;
+	case ' ':
+		output = 10;
 		break;
 	case 13: //enter key
 		output = 0;
 		printf("%c[2J", 0x1B);
 		break;
 
-
-
 	default:
-		output = 0;
+		output = input;
 	}
 /*
 	 the output is like this

@@ -11,6 +11,19 @@
 #include "game.h"
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 6ab304c2c0eb24d181ff0c30eb14dc560f6a5e86
 enemy* initEnemy(){
 
 	enemy* enemies = malloc(6*sizeof(enemy));
