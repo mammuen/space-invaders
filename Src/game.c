@@ -52,7 +52,6 @@ void drawEnemies(enemy* enemies){
 }
 
 
-
 int updateEnemies(enemy* enemies){
 
 
