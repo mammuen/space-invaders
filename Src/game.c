@@ -1,15 +1,9 @@
-/*
- * game.c
- *
- *  Created on: 8 Jan 2024
- *      Author: oscar
- */
-
 #include "ansi.h"
 #include <stdio.h>
 #include <string.h>
 #include "game.h"
 #include <stdlib.h>
+
 
 
 enemy* initEnemy() {
@@ -47,8 +41,8 @@ void drawEnemies(enemy* enemies){
 
 	for(int i = 0; i < 6; i++){
 		if(enemies[i].health > 0){
-		gotoxy(enemies[i].x,enemies[i].y);
-		printf("< :( ==<");
+			gotoxy(enemies[i].x,enemies[i].y);
+			printf("< :( ==<");
 		}
 	}
 }
@@ -59,7 +53,7 @@ int updateEnemies(enemy* enemies){
 
 	for(int i = 0; i < 6; i++){
 		if(enemies[i].x < 10){
-		enemies[i].health = 0;
+			enemies[i].health = 0;
 		}
 	}
 
@@ -87,7 +81,6 @@ int updateEnemies(enemy* enemies){
 	}
 
 	return 0;
-
 }
 
 void drawGameDisplay() {
