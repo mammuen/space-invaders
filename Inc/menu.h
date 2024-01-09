@@ -15,6 +15,9 @@
 
 void drawMenu(int selectedItem);
 void selectMenu();
+void helpMenu();
+void diffMenu();
+void drawdiff();
 void delay(uint32_t count);
 
 #endif /* MENU_H_ */
