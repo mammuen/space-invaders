@@ -66,12 +66,6 @@ void drawMenu(int selectedItem) {
     }
 }
 
-void helpMenu(){
-	hideCursor();
-	setup();
-	drawGameDisplay();
-}
-
 void selectMenu(){
 	hideCursor();
 	setup();
@@ -87,18 +81,18 @@ void selectMenu(){
 	        }
 	        else if (joystickInput == 2 && selectedItem < 2) {
 	            selectedItem++;
-	            clrscr();// Move down in the menu
+	            clrscr(); // Move down in the menu
 	        }
 
 	        else if (joystickInput > 8 && selectedItem > 1) {
 	        	clrscr();
-	        	helpMenu();// Open help
+	        	helpMenu(); // Open help
 	        	break;
 	        }
 
 	        else if (joystickInput > 8 && selectedItem > 2) {
 	        	clrscr();
-	        	// Start game
+	        	diffMenu(); // Open difficulties
 	        	break;
 	        }
 
@@ -109,4 +103,14 @@ void selectMenu(){
 	    }
 }
 
+void helpMenu(){
+	hideCursor();
+	setup();
+	drawGameDisplay();
+}
 
+void diffMenu(){
+	hideCursor();
+	setup();
+	drawGameDisplay();
+}
