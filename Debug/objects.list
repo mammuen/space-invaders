@@ -23,7 +23,6 @@
 "./Src/30010_io.o"
 "./Src/LCDdisplay.o"
 "./Src/ansi.o"
-"./Src/charset.o"
 "./Src/game.o"
 "./Src/joystick.o"
 "./Src/main.o"
