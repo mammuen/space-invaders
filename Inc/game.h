@@ -41,12 +41,18 @@ typedef struct{
 
 
 
-void initPlayer();
+void initPlayer(player p);
 void initAsteroid();
-void initbullet();
-void initenemy();
+bullet* initBullet();
+enemy* initEnemy();
+
+void drawPlayer();
+void drawAsteroid();
+void drawBullet();
+void drawEnemies(enemy*);
 
 
+void updateEnemies(enemy*);
 
 
 
@@ -54,7 +60,6 @@ void initenemy();
 void drawGameDisplay();
 void showCursor();
 void hideCursor();
-void drawPlayer();
 void updatePlayer();
 void getKeystrokes();
 void drawAsteroid();
