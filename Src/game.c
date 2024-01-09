@@ -9,21 +9,24 @@
 #include <stdio.h>
 #include <string.h>
 #include "game.h"
+#include <stdlib.h>
 
 
-enemy* initEnemy(){
+enemy* initEnemies() {
+    enemy* enemies = malloc(6 * sizeof(enemy));
 
-	enemy* enemies = malloc(6*sizeof(enemy));
+    if (enemies != NULL) {
+        for (int i = 0; i < 6; i++) {
+            enemies[i].health = 1;
+            enemies[i].speed = 1;
+            enemies[i].type = 1;
+            enemies[i].x = 170;
+            enemies[i].y = i * 8;
+        }
+        enemies[3].speed = 3;
+    }
 
-	for(int i = 0; i < 6; i++){
-		enemies[i].health = 1;
-		enemies[i].speed = 1;
-		enemies[i].type = 1;
-		enemies[i].x = 170;
-		enemies[i].y = i*8;
-	}
-		enemies[3].speed = 3;
-	return enemies;
+    return enemies;
 }
 
 void spawnEnemies(enemy* enemies){
@@ -36,7 +39,6 @@ void spawnEnemies(enemy* enemies){
 		enemies[i].y = i*8;
 	}
 		enemies[3].speed = 3;
-	return enemies;
 }
 
 
@@ -87,10 +89,6 @@ int updateEnemies(enemy* enemies){
 	return 0;
 
 }
-
-
-
-
 
 void drawGameDisplay() {
     Point p1 = {1, 1};
