@@ -52,9 +52,7 @@ void drawBullet();
 void drawEnemies(enemy*);
 
 
-void updateEnemies(enemy*);
-
-
+int updateEnemies(enemy*);
 
 
 void drawGameDisplay();

@@ -11,19 +11,6 @@
 #include "game.h"
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
-
->>>>>>> 6ab304c2c0eb24d181ff0c30eb14dc560f6a5e86
 enemy* initEnemy(){
 
 	enemy* enemies = malloc(6*sizeof(enemy));
@@ -39,6 +26,21 @@ enemy* initEnemy(){
 	return enemies;
 }
 
+void spawnEnemies(enemy* enemies){
+
+	for(int i = 0; i < 6; i++){
+		enemies[i].health = 1;
+		enemies[i].speed = 1;
+		enemies[i].type = 1;
+		enemies[i].x = 170;
+		enemies[i].y = i*8;
+	}
+		enemies[3].speed = 3;
+	return enemies;
+}
+
+
+
 void drawEnemies(enemy* enemies){
 
 	for(int i = 0; i < 6; i++){
@@ -51,7 +53,7 @@ void drawEnemies(enemy* enemies){
 
 
 
-void updateEnemies(enemy* enemies){
+int updateEnemies(enemy* enemies){
 
 
 	for(int i = 0; i < 6; i++){
@@ -73,6 +75,17 @@ void updateEnemies(enemy* enemies){
 		enemies[i].x = enemies[i].x - enemies[i].speed;
 
 	}
+
+	if(enemies[0].health == 0 &&
+		enemies[1].health == 0 &&
+		enemies[2].health == 0 &&
+		enemies[3].health == 0 &&
+		enemies[4].health == 0 &&
+		enemies[5].health == 0){
+		return 1;
+	}
+
+	return 0;
 
 }
 
