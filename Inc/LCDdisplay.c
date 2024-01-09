@@ -34,16 +34,13 @@ void LCD_gameStart(uint8_t* LCD){
 	stringAdd(LCD, hearts,0,0 );
 	stringAdd(LCD, "Score: 0",0,1 );
 	stringAdd(LCD, bullets,0,3);
-
-
 }
+
 
 void setScore(uint8_t* LCD, uint8_t amount){
 
 	char* input = (char*) malloc(20*sizeof(char));
 	sprintf(input, "%d", amount);
-
-
 
 	LCDclrline(LCD, 1);
 
@@ -56,6 +53,8 @@ void setScore(uint8_t* LCD, uint8_t amount){
 		string[i+7] = input[i];
 	}
 	stringAdd(LCD, string,0,1 );
+
+	free(input);
 
 
 }

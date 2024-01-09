@@ -47,10 +47,8 @@ char keyboardinput(){
 		printf("%c[2J", 0x1B);
 		break;
 
-
-
 	default:
-		output = 0;
+		output = input;
 	}
 /*
 	 the output is like this

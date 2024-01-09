@@ -44,6 +44,8 @@ void heart1(uint8_t* LCD);
 void heart2(uint8_t* LCD);
 void heart3(uint8_t* LCD);
 
+void LCDclrline(uint8_t *LCD,uint8_t liney);
+
 void LCDclrscrn(uint8_t *LCD,uint8_t fill);
 uint8_t* initalize_LCD();
 
