@@ -22,7 +22,6 @@ void stringAdd(uint8_t* LCD, char* text, uint8_t x, uint8_t y);
 
 extern const char character_data[99][5];
 void drawHearts(uint8_t num, uint8_t x, uint8_t y);
-
 void setScore(uint8_t* LCD,  uint8_t amount);
 
 

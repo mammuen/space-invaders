@@ -38,6 +38,6 @@ Note:
 #ifndef _CHARSET_H_
 #define _CHARSET_H_
 
-extern const char character_data[95][5];
+//extern const char character_data[95][5];
 
 #endif /*! _ACHARSET_H_ */
