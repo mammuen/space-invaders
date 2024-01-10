@@ -14,10 +14,10 @@
 #include "game.h"
 
 void drawMenu(int selectedItem);
-void selectMenu();
-void helpMenu();
-void diffMenu();
 void drawdiff(int selectedItem);
+void selectMenu(Window win);
+void helpMenu(Window win);
+void diffMenu(Window win);
 void delay(uint32_t count);
 void drawTitle();
 

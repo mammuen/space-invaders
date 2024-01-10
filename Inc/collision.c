@@ -9,7 +9,7 @@
 
 
 
-int checkcollision(uint8_t* collision, player p, asteriod a, enemy e)
+int checkcollision(uint8_t* collision, Player p, Asteriod a, Enemy e)
 {
 
 	return 0;

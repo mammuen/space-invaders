@@ -6,8 +6,8 @@
 
 
 
-enemy* initEnemy() {
-    enemy* enemies = malloc(6 * sizeof(enemy));
+Enemy* initEnemy() {
+    Enemy* enemies = malloc(6 * sizeof(Enemy));
 
     if (enemies != NULL) {
         for (int i = 0; i < 6; i++) {
@@ -23,7 +23,7 @@ enemy* initEnemy() {
     return enemies;
 }
 
-void spawnEnemies(enemy* enemies){
+void spawnEnemies(Enemy* enemies){
 
 	for(int i = 0; i < 6; i++){
 		enemies[i].health = 1;
@@ -37,7 +37,7 @@ void spawnEnemies(enemy* enemies){
 
 
 
-void drawEnemies(enemy* enemies){
+void drawEnemies(Enemy* enemies){
 
 	for(int i = 0; i < 6; i++){
 		if(enemies[i].health > 0){
@@ -48,7 +48,7 @@ void drawEnemies(enemy* enemies){
 }
 
 
-int updateEnemies(enemy* enemies){
+int updateEnemies(Enemy* enemies){
 
 
 	for(int i = 0; i < 6; i++){
@@ -83,9 +83,11 @@ int updateEnemies(enemy* enemies){
 	return 0;
 }
 
-void drawGameDisplay() {
+void drawGameDisplay(Window win) {
+	int w = win.w;
+	int h = win.h;
     Point p1 = {1, 1};
-    Point p2 = {180, 50};
+    Point p2 = {w, h};
     int style = 1;
 
     drawAsciiWindow(&p1, &p2, style);
@@ -99,13 +101,52 @@ void hideCursor() {
 	 fputs("\033[?25l", stdout); // Hide cursor
 }
 
-void drawPlayer(int x, int y) {
+void drawPlayer(Player *p) {
+	int x = p->x;
+	int y = p->y;
+
+	// print 1st line
 	gotoxy(x, y);
-	printf("%c%c%c%c", 61, 95, 95, 92);
+	printf("%c", 61);
+	gotoxy(x+1, y);
+	printf("%c", 95);
+	gotoxy(x+2, y);
+	printf("%c", 95);
+	gotoxy(x+3,y);
+	printf("%c",92);
+
+	// print second line
 	gotoxy(x, y+1);
-	printf("  %co o%c%c%c%c", 124, 41, 61, 45, 45);
+	printf(" ");
+	gotoxy(x+1, y+1);
+	printf(" ");
+	gotoxy(x+2, y+1);
+	printf("%c", 124);
+	gotoxy(x+3, y+1);
+	printf("o");
+	gotoxy(x+4, y+1);
+	printf(" ");
+	gotoxy(x+5, y+1);
+	printf("o");
+	gotoxy(x+6, y+1);
+	printf("%c", 41);
+	gotoxy(x+7, y+1);
+	printf("%c", 61);
+	gotoxy(x+8, y+1);
+	printf("%c", 45);
+	gotoxy(x+9, y+1);
+	printf("%c", 45);
+
+	// print last line
 	gotoxy(x, y+2);
-	printf("%c%c%c%c", 61, 45, 45, 47);
+	printf("%c", 61);
+	gotoxy(x+1, y+2);
+	printf("%c", 45);
+	gotoxy(x+2, y+2);
+	printf("%c", 45);
+	gotoxy(x+3, y+2);
+	printf("%c", 47);
+
 }
 
 void updatePlayer() {
@@ -125,5 +166,9 @@ void updateAsteroid() {
 }
 
 void initAsteroid() {
+
+}
+
+void drawStars() {
 
 }

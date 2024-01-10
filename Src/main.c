@@ -7,6 +7,7 @@
 #include "LCDdisplay.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 #include "LCDdisplay.h"
@@ -19,24 +20,30 @@ int main(void) {
     //setup
     uart_init(460800);
     hideCursor();
+    clrscr();
 
+    //variables
     int p = 0;
+    int width = 200;
+    int height = 50;
+    Window window = {width, height}; // creates a window struct
 
-        while (1) {
+	while (1) {
 
-        	drawPlayer(10, 10);
+		drawGameDisplay(window);
+		drawPlayer(20, 10);
 
-        	if(p%100 == 0){
-        		clrscr();
-            }
+		if(p%100 == 0){
+			clrscr();
+		}
 
-        	if (p > 10000000) {
-        		p = 0;
-        	}
+		if (p > 10000000) {
+			p = 0;
+		}
 
-            p++;
+		p++;
 
-        }
+	}
 
 }
 

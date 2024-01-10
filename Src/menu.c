@@ -194,7 +194,7 @@ void drawdiff(int selectedItem) {
 
 }
 
-void diffMenu() {
+void diffMenu(Window win) {
     uart_init(460800);
     hideCursor();
     setup();
@@ -234,23 +234,23 @@ void diffMenu() {
         }
 
         drawdiff(selectedItem);
-        drawGameDisplay();
+        drawGameDisplay(win);
 
         delay(100000);
     }
     clrscr();
-    selectMenu(); // Call selectMenu after exiting the while loop
+    selectMenu(win); // Call selectMenu after exiting the while loop
 }
 
 
-void helpMenu() {
+void helpMenu(Window win) {
 	uart_init(460800);
     hideCursor();
     setup();
-    drawGameDisplay();
+    drawGameDisplay(win);
 }
 
-void selectMenu(){
+void selectMenu(Window win){
 	uart_init(460800);
 	hideCursor();
 	setup();
@@ -274,18 +274,18 @@ void selectMenu(){
 
 	                    if (selectedItem == 1) {
 	                        // Open difficulties menu
-	                        diffMenu();
+	                        diffMenu(win);
 	                        break;
 	                    }
 	                    else if (selectedItem == 2) {
 	                        // Open help menu
-	                        helpMenu();
+	                        helpMenu(win);
 	                        break;
 	                    }
 	        }
 
 	        drawMenu(selectedItem);
-	        drawGameDisplay();
+	        drawGameDisplay(win);
 
 	        delay(100000);
 	    }

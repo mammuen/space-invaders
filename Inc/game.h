@@ -13,7 +13,7 @@ typedef struct {
 	int y;
 	int powerup;
 	int display;
-} bullet;
+} Bullet;
 
 typedef struct {
 	int x;
@@ -22,14 +22,14 @@ typedef struct {
 	int score;
 	int bullets;
 	int powerup;
-} player;
+} Player;
 
 typedef struct{
 	int x;
 	int y;
 	int size;
 	int health;
-} asteriod;
+} Asteriod;
 
 typedef struct{
 	int x;
@@ -37,25 +37,30 @@ typedef struct{
 	int type;
 	int speed;
 	int health;
-} enemy;
+} Enemy;
+
+typedef struct {
+	int w;
+	int h;
+} Window;
 
 
 
-void initPlayer(player p);
+void initPlayer(Player p);
 void initAsteroid();
-bullet* initBullet();
-enemy* initEnemy();
+Bullet* initBullet();
+Enemy* initEnemy();
 
 void drawPlayer();
 void drawAsteroid();
 void drawBullet();
-void drawEnemies(enemy*);
+void drawEnemies(Enemy*);
 
 
-int updateEnemies(enemy*);
+int updateEnemies(Enemy*);
 
 
-void drawGameDisplay();
+void drawGameDisplay(Window win);
 void showCursor();
 void hideCursor();
 void updatePlayer();

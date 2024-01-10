@@ -70,7 +70,6 @@ void resetbgcolor() {
 
 void clrscr() {
 	printf("%c[2J", ESC);
-	printf("%c[H", ESC);
 }
 
 void clreol() {
