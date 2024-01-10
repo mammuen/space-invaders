@@ -15,10 +15,11 @@
 
 
 
-int main(void) {
+int main() {
 
     //setup
     uart_init(460800);
+
     hideCursor();
     clrscr();
 
@@ -26,12 +27,13 @@ int main(void) {
     int p = 0;
     int width = 200;
     int height = 50;
+    int Player = {20, 10, 1, 1, 1, 1};
     Window window = {width, height}; // creates a window struct
 
 	while (1) {
 
 		drawGameDisplay(window);
-		drawPlayer(20, 10);
+		drawPlayer();
 
 		if(p%100 == 0){
 			clrscr();
