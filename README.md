@@ -1,4 +1,3 @@
-# Kursus 30010 - Space Invaders Project
+# DTU Course 30010 - Space Adventures Game
 
-**Space invader project written in C using stm32 ARM**
-
+**Written for STM32 Board**
