@@ -99,8 +99,13 @@ void hideCursor() {
 	 fputs("\033[?25l", stdout); // Hide cursor
 }
 
-void drawPlayer() {
-
+void drawPlayer(int x, int y) {
+	gotoxy(x, y);
+	printf("%c%c%c%c", 61, 95, 95, 92);
+	gotoxy(x, y+1);
+	printf("  %co o%c%c%c%c", 124, 41, 61, 45, 45);
+	gotoxy(x, y+2);
+	printf("%c%c%c%c", 61, 45, 45, 47);
 }
 
 void updatePlayer() {

@@ -16,25 +16,27 @@
 
 int main(void) {
 
-	//setup
-	uart_init(460800);
-	hideCursor();
+    //setup
+    uart_init(460800);
+    hideCursor();
 
-	//variables
-	int count = 0;
+    int p = 0;
 
-	while (1) {
+        while (1) {
 
-		drawGameDisplay();
+        	drawPlayer(10, 10);
 
-		if (count % 100 == 1) {
-			clrscr();
-		}
+        	if(p%100 == 0){
+        		clrscr();
+            }
 
-		if (count > 1000000000) {
-			count = 0;
-		}
-		count += 1;
-	}
+        	if (p > 10000000) {
+        		p = 0;
+        	}
+
+            p++;
+
+        }
+
 }
 
