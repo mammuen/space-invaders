@@ -68,4 +68,8 @@ void getKeystrokes();
 void drawAsteroid();
 void updateAsteroid();
 
+
+extern char enemyPrint[3][3];
+
+
 #endif /* GAME_H_ */

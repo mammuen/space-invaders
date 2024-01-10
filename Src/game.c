@@ -41,10 +41,25 @@ void drawEnemies(Enemy* enemies){
 
 	for(int i = 0; i < 6; i++){
 		if(enemies[i].health > 0){
-			gotoxy(enemies[i].x,enemies[i].y);
-			printf("< :( ==<");
+			printEnemy(enemies[i].x,enemies[i].y);
 		}
 	}
+}
+
+void printEnemy(int x,int y){
+	gotoxy(x,y);
+	int heigth = 3;
+	int width  = 3;
+
+
+	for(int i = 0; i < heigth; i++){
+		for(int j = 0; j < width; j++){
+			gotoxy(x+i,y+j);
+			printf("%c",enemyPrint[j][i]);
+
+	}
+
+}
 }
 
 
@@ -172,3 +187,14 @@ void initAsteroid() {
 void drawStars() {
 
 }
+
+char enemyPrint[3][3] =  {
+		{' ',' ','|'},
+		{'<','=','|'},
+		{' ',' ','|'}
+};
+
+
+
+
+
