@@ -68,7 +68,7 @@ void printBullet(int x,int y){
 
 
 
-int updatebullets(Bullet* bullets){
+int updateBullets(Bullet* bullets){
 
 
 	for(int i = 0; i < 6; i++){
