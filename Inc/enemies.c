@@ -5,6 +5,8 @@
  *      Author: markus
  */
 
+#include "enemies.h"
+
 
 Enemy* initEnemy() {
     Enemy* enemies = malloc(6 * sizeof(Enemy));

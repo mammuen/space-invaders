@@ -9,6 +9,16 @@
 #define ENEMIES_H_
 
 
+typedef struct{
+	int x;
+	int y;
+	int type;
+	int speed;
+	int health;
+} Enemy;
+
+
+
 Enemy* initEnemy();
 void drawEnemies(Enemy*);
 int updateEnemies(Enemy*);
