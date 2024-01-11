@@ -15,6 +15,7 @@
 #include "30010_io.h"
 #include <stdlib.h>
 
+uint8_t* initalize_LCD();
 
 void LCD_gameStart(uint8_t* LCD);
 
@@ -46,6 +47,5 @@ void heart3(uint8_t* LCD);
 void LCDclrline(uint8_t *LCD,uint8_t liney);
 
 void LCDclrscrn(uint8_t *LCD,uint8_t fill);
-uint8_t* initalize_LCD();
 
 #endif /* LCDDISPLAY_H_ */

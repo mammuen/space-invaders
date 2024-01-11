@@ -30,8 +30,9 @@ void spawn1Bullet(Bullet* bullets, Player* p);
 void drawBullets();
 void printBullet(int x,int y);
 int updateBullets(Bullet* bullets);
+void reload(Bullet* B, Player* P);
 
-extern char bulletPrint[2];
+extern char bulletPrint[3];
 
 
 

@@ -26,6 +26,14 @@
 	free(LCD);
 */
 
+uint8_t* initalize_LCD(){
+	lcd_init();
+	uint8_t* LCD = (uint8_t*) malloc(512);
+	LCDclrscrn(LCD,0);
+
+
+	return LCD;
+}
 
 void LCD_gameStart(uint8_t* LCD){
 	char hearts[4] = {128, 128, 128};
@@ -238,14 +246,7 @@ void LCDclrscrn(uint8_t *LCD,uint8_t fill){
 	lcd_push_buffer(LCD);
 }
 
-uint8_t* initalize_LCD(){
-	lcd_init();
-	uint8_t* LCD = (uint8_t*) malloc(512);
-	LCDclrscrn(LCD,0);
 
-
-	return LCD;
-}
 
 
 

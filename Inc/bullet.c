@@ -28,11 +28,17 @@ Bullet* initBullets() {
 void spawn1Bullet(Bullet* bullets, Player* p){
 
 	//for(int i = 0; i < 6; i++){
-	bullets[0].health = 1;
-	bullets[0].x = p->x+10;
-	bullets[0].y = p->y+1;
-
 	//}
+	if(p->bullets >= 0){
+	bullets[ p->bullets ].health = 1;
+	bullets[ p->bullets ].x = p->x+10;
+	bullets[ p->bullets ].y = p->y+1;
+	p->bullets--;
+	}
+	else {
+		reload(bullets, p);
+	}
+
 }
 
 
@@ -52,7 +58,7 @@ void drawBullets(Bullet* bullets){
 
 void printBullet(int x,int y){
 	gotoxy(x,y);
-	int width  = 2;
+	int width  = 3;
 
 		for(int j = 0; j < width; j++){
 			gotoxy(x+j,y);
@@ -97,7 +103,17 @@ int updatebullets(Bullet* bullets){
 }
 
 
+void reload(Bullet* B, Player* P){
+
+	//some kind of wait function
+	P->bullets = 5;
+	for(int i = 0; i < 6; i++){
+		B[i].health = 0;
+	}
+}
 
 
 
-char bulletPrint[2] = {'=','>'};
+
+
+char bulletPrint[3] = {' ','=','>'};
