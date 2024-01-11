@@ -29,7 +29,7 @@ void spawn1Bullet(Bullet* bullets, Player* p){
 
 	//for(int i = 0; i < 6; i++){
 	bullets[0].health = 1;
-	bullets[0].x = p->x+3;
+	bullets[0].x = p->x+10;
 	bullets[0].y = p->y+1;
 
 	//}
@@ -39,7 +39,7 @@ void spawn1Bullet(Bullet* bullets, Player* p){
 
 
 
-void drawbullets(Bullet* bullets){
+void drawBullets(Bullet* bullets){
 
 	for(int i = 0; i < 6; i++){
 		if(bullets[i].health > 0){

@@ -27,7 +27,7 @@ typedef struct {
 Bullet* initBullets();
 void spawn1Bullet(Bullet* bullets, Player* p);
 
-void drawBullet();
+void drawBullets();
 void printBullet(int x,int y);
 int updateBullets(Bullet* bullets);
 
