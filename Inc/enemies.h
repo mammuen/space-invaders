@@ -9,6 +9,9 @@
 #define ENEMIES_H_
 
 
+#include "stdlib.h"
+
+
 typedef struct{
 	int x;
 	int y;
@@ -16,6 +19,8 @@ typedef struct{
 	int speed;
 	int health;
 } Enemy;
+
+extern char enemyPrint[3][3];
 
 
 
@@ -25,7 +30,6 @@ int updateEnemies(Enemy*);
 void printEnemy(int x,int y);
 
 
-extern char enemyPrint[3][3];
 
 
 #endif /* ENEMIES_H_ */

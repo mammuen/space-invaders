@@ -99,3 +99,11 @@ int updateEnemies(Enemy* enemies){
 
 	return 0;
 }
+
+
+char enemyPrint[3][3] =  {
+		{' ',' ',','},
+		{'<','@','#'},
+		{' ',' ','\''}
+};
+
