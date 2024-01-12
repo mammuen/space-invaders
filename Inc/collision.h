@@ -18,5 +18,12 @@
 
 
 int BulletEnemycollision(Enemy* E, Bullet* B);
+int EnemyPlayercollision(Enemy* E, Player* P);
+int EnemyAsteroidcollision(Enemy* E,Asteriod* A);
+int BulletAsteroidcollision(Bullet* B,Asteriod* A);
+
+
+
+
 
 #endif /* COLLISION_H_ */

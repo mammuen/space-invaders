@@ -26,18 +26,6 @@ void getKeystrokes() {
 
 }
 
-void drawAsteroid() {
-
-}
-
-void updateAsteroid() {
-
-}
-
-void initAsteroid() {
-
-}
-
 void drawStars() {
 
 }
