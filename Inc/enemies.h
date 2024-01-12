@@ -10,6 +10,8 @@
 
 
 #include "stdlib.h"
+#include "stdio.h"
+
 
 
 typedef struct{
@@ -20,7 +22,7 @@ typedef struct{
 	int health;
 } Enemy;
 
-extern char enemyPrint[3][3];
+extern char enemyPrint[3][4];
 
 
 

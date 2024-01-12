@@ -9,22 +9,29 @@
 
 
 
-int checkcollision(uint8_t* collision, Player p, Asteriod a, Enemy e)
+int BulletEnemycollision(Enemy* E, Bullet* B)
 {
+	int diff = 4;
 
+	for(int i = 0; i < 6; i++){
+		for(int j = 0; j < 6; j++){
+			if( abs(B[i].x - E[i].x+1) < diff ){
+				if( abs(B[i].y - E[i].y+2) < diff ){
+
+					B[i].health = 0;
+					E[i].health = 0;
+
+
+			}
+		}
+	}
+}
 	return 0;
+
 }
 
 
-uint8_t* initCollision(){
-	uint8_t* line = malloc(180*sizeof(uint8_t));
-	free(line);
-	return line;
-}
 
-void cleararray(uint8_t* collision){
-	memset(collision, 0, 180);
-}
 
 
 

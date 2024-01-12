@@ -19,7 +19,7 @@ Enemy* initEnemy() {
             enemies[i].x = 170;
             enemies[i].y = i * 8;
         }
-        enemies[3].speed = 3;
+        enemies[3].speed = 1;
     }
 
     return enemies;
@@ -34,7 +34,6 @@ void spawnEnemies(Enemy* enemies){
 		enemies[i].x = 170;
 		enemies[i].y = i*8;
 	}
-		enemies[3].speed = 3;
 }
 
 
@@ -49,8 +48,7 @@ void drawEnemies(Enemy* enemies){
 }
 
 void printEnemy(int x,int y){
-	gotoxy(x,y);
-	int heigth = 3;
+	int heigth = 4;
 	int width  = 3;
 
 
@@ -101,9 +99,9 @@ int updateEnemies(Enemy* enemies){
 }
 
 
-char enemyPrint[3][3] =  {
-		{' ',' ',','},
-		{'<','@','#'},
-		{' ',' ','\''}
+char enemyPrint[3][4] =  {
+		{' ',' ',',', ' '},
+		{'<','@','#', ' '},
+		{' ',' ','\'', ' '}
 };
 
