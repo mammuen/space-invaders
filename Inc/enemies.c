@@ -17,9 +17,15 @@ Enemy* initEnemy() {
             enemies[i].speed = 1;
             enemies[i].type = 1;
             enemies[i].x = 170;
-            enemies[i].y = i * 8;
+            enemies[i].y = i * 8 + 5;
         }
-        enemies[3].speed = 1;
+        enemies[0].health = 0;
+        enemies[2].health = 0;
+        enemies[3].health = 0;
+        enemies[4].health = 0;
+        enemies[5].health = 0;
+
+
     }
 
     return enemies;
@@ -32,8 +38,16 @@ void spawnEnemies(Enemy* enemies){
 		enemies[i].speed = 1;
 		enemies[i].type = 1;
 		enemies[i].x = 170;
-		enemies[i].y = i*8;
+		enemies[i].y = i*8 + 5;
 	}
+    enemies[0].health = 0;
+    enemies[2].health = 0;
+    enemies[3].health = 0;
+    enemies[4].health = 0;
+    enemies[5].health = 0;
+
+
+
 }
 
 
@@ -69,6 +83,7 @@ int updateEnemies(Enemy* enemies){
 	for(int i = 0; i < 6; i++){
 		if(enemies[i].x < 10){
 			enemies[i].health = 0;
+
 		}
 	}
 
@@ -92,6 +107,10 @@ int updateEnemies(Enemy* enemies){
 		enemies[3].health == 0 &&
 		enemies[4].health == 0 &&
 		enemies[5].health == 0){
+
+		spawnEnemies(enemies);
+
+
 		return 1;
 	}
 
