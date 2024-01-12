@@ -32,11 +32,15 @@ int main() {
     int p = 0;
     int width = 200;
     int height = 50;
-    //int Player = {5, 10, 1, 1, 1, 1};
+    Player p1 = {5, 10, 1, 1, 1, 1};
+
+    /*
     Player p1;
     p1.x = 10;
     p1.y = 2;
     p1.bullets = 5;
+
+    */
 
     Window window = {width, height}; // creates a window struct
     char input;
@@ -47,7 +51,7 @@ int main() {
 
 	while (1) {
 
-		drawPlayer(&p1);
+		drawPlayer(p1);
 		drawBullets(B);
 		input = keyboardinput();
 
@@ -74,4 +78,3 @@ int main() {
 	}
 
 }
-

@@ -11,8 +11,7 @@
 
 #include "stdlib.h"
 #include "stdio.h"
-
-
+#include "ansi.h"
 
 typedef struct{
 	int x;
@@ -24,14 +23,9 @@ typedef struct{
 
 extern char enemyPrint[3][4];
 
-
-
 Enemy* initEnemy();
 void drawEnemies(Enemy*);
 int updateEnemies(Enemy*);
 void printEnemy(int x,int y);
-
-
-
 
 #endif /* ENEMIES_H_ */
