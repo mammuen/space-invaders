@@ -8,10 +8,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
-
-#include "LCDdisplay.h"
-#include "game.h"
+#include <enemies.h>
+#include <bullet.h>
+#include <keyboard.h>
+#include <collision.h>
 
 
 
@@ -23,24 +23,54 @@ int main() {
     hideCursor();
     clrscr();
 
+    //start enemies
+    Enemy*  E = initEnemy();
+    Bullet* B = initBullets();
+    uint8_t* LCD = initalize_LCD();
+
     //variables
     int p = 0;
     int width = 200;
     int height = 50;
-    int Player = {20, 10, 1, 1, 1, 1};
+    Player p1 = {5, 10, 1, 1, 1, 1};
+
+    /*
+    Player p1;
+    p1.x = 10;
+    p1.y = 2;
+    p1.bullets = 5;
+
+    */
+
     Window window = {width, height}; // creates a window struct
+    char input;
+
+    clrscr();
+	drawGameDisplay(window);
+
 
 	while (1) {
 
-		drawGameDisplay(window);
-		drawPlayer();
+		drawPlayer(p1);
+		drawBullets(B);
+		input = keyboardinput();
 
-		if(p%100 == 0){
-			clrscr();
+		if(input == 10){
+			spawn1Bullet(B,&p1);
+			bulletamount(LCD, p1.bullets+1);
 		}
 
-		if (p > 10000000) {
-			p = 0;
+		if(input == 3){p1.y++;}
+		if(input == 1){p1.y--;}
+		if(p%10 == 1){
+			BulletEnemycollision(E,B);
+			updateBullets(B);
+		}
+
+		if(p%100 == 1){
+		    clrscr();
+			updateEnemies(E);
+			drawEnemies(E);
 		}
 
 		p++;
@@ -48,4 +78,3 @@ int main() {
 	}
 
 }
-

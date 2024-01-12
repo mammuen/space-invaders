@@ -8,9 +8,10 @@
 #ifndef BULLET_H_
 #define BULLET_H_
 
-#include "game.h"
 #include <stdlib.h>
+#include "game.h"
 #include "ansi.h"
+#include "player.h"
 
 
 typedef struct {

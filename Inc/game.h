@@ -8,16 +8,6 @@
 #ifndef GAME_H_
 #define GAME_H_
 
-
-typedef struct {
-	int x;
-	int y;
-	int health;
-	int score;
-	int bullets;
-	int powerup;
-} Player;
-
 typedef struct{
 	int x;
 	int y;
@@ -25,30 +15,20 @@ typedef struct{
 	int health;
 } Asteriod;
 
-
 typedef struct {
 	int w;
 	int h;
 } Window;
 
-
-
-void initPlayer(Player p);
 void initAsteroid();
-
-void drawPlayer();
 void drawAsteroid();
-
-
+void drawAsteroid();
+void updateAsteroid();
 
 void drawGameDisplay(Window win);
 void showCursor();
 void hideCursor();
 void updatePlayer();
 void getKeystrokes();
-void drawAsteroid();
-void updateAsteroid();
-
-
 
 #endif /* GAME_H_ */
