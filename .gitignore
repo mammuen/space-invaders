@@ -1,3 +1,6 @@
 .DS_Store
 Debug
 
+space-invaders Debug.launch
+.settings/com.st.stm32cube.ide.mcu.sfrview.prefs
+space-invaders Debug.launch
