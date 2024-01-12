@@ -32,7 +32,7 @@ void spawn1Bullet(Bullet* bullets, Player* p){
 	if(p->bullets >= 0){
 	bullets[ p->bullets ].health = 1;
 	bullets[ p->bullets ].x = p->x+10;
-	bullets[ p->bullets ].y = p->y+1;
+	bullets[ p->bullets ].y = p->y+2;
 	p->bullets--;
 	}
 	else {

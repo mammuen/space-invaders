@@ -20,15 +20,10 @@ typedef struct {
 	int h;
 } Window;
 
-void initAsteroid();
-void drawAsteroid();
-void drawAsteroid();
-void updateAsteroid();
 
 void drawGameDisplay(Window win);
 void showCursor();
 void hideCursor();
-void updatePlayer();
 void getKeystrokes();
 
 #endif /* GAME_H_ */

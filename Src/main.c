@@ -32,6 +32,9 @@ int main() {
     int p = 0;
     int width = 200;
     int height = 50;
+<<<<<<< HEAD
+    Player p1 = {5, 10, 1, 1, 5, 1};
+=======
     Player p1 = {5, 10, 3, 0, 6, 0};
     // x , y, health ,
     //score, bullets, powerup
@@ -45,6 +48,7 @@ int main() {
     p1.bullets = 5;
 
     */
+>>>>>>> 598199a1db770b7583afb98cb97e28d47ae62523
 
     Window window = {width, height}; // creates a window struct
     char input;
@@ -55,8 +59,15 @@ int main() {
 
 	while (1) {
 
+		// update game object
+		updatePlayer(&p1, input, window.w, window.h);
+		updateBullets(B);
+
+		// draw game objects
 		drawPlayer(p1);
 		drawBullets(B);
+		drawEnemies(E);
+
 		input = keyboardinput();
 
 		if(input == 10){
@@ -65,10 +76,22 @@ int main() {
 			bulletamount(LCD, p1.bullets+1);
 		}
 
+<<<<<<< HEAD
+		if (p % 10 == 0) {
+			drawGameDisplay(window);
+			BulletEnemycollision(E,B);
+
+			updateEnemies(E);
+		}
+
+		if(p%40 == 0){
+		    clrscr();
+=======
 		if(p % 20 == 0){
 
 			updateEnemies(E);
 			drawEnemies(E);
+>>>>>>> 598199a1db770b7583afb98cb97e28d47ae62523
 		}
 
 
@@ -91,6 +114,10 @@ int main() {
 
 
 		p++;
+
+		if (p > 100000000) {
+			p = 0;
+		}
 
 	}
 

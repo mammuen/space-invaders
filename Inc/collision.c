@@ -59,3 +59,60 @@ int EnemyPlayercollision(Enemy* E, Player* P)
 }
 	return 0;
 }
+
+
+int EnemyAsteroidcollision(Enemy* E,Asteriod* A){
+
+
+	int diff = 2;
+
+	for(int i = 0; i < 6; i++){
+		for(int j = 0; j < 6; j++){
+			if(A[i].health > 0){
+
+ 			if( abs(A[i].x - E[j].x - A[i].size/2) < diff ){
+				if( abs(A[i].y - E[j].y - A[i].size/2) < diff ){
+
+					A[i].health = 0;
+					return 1;
+
+			}
+		}
+	}
+	}
+}
+
+	return 0;
+}
+
+
+
+int BulletAsteroidcollision(Bullet* B,Asteriod* A){
+
+	int diff = 10;
+
+	for(int i = 0; i < 6; i++){
+		for(int j = 0; j < 6; j++){
+			if(A[i].health > 0){
+			if(B[i].health > 0){
+
+
+ 			if( abs(A[i].x - B[j].x ) < diff ){
+				if( abs(A[i].y - B[j].y ) < diff ){
+
+					B[i].health = 0;
+					return 1;
+
+				}
+ 			}
+		}
+	}
+}
+}
+	return 0;
+}
+
+
+
+
+
