@@ -20,6 +20,6 @@ typedef struct {
 extern char grahpics;
 
 void drawPlayer(Player p);
-void updatePlayer(Player *p, char input, int h);
+void updatePlayer(Player *p, char input, int w, int h);
 
 #endif /* PLAYER_H_ */
