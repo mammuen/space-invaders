@@ -6,55 +6,39 @@
  */
 
 #include "player.h"
+#include "ansi.h"
+#include <stdio.h>
 
 void drawPlayer(Player p) {
 	int x = p.x;
 	int y = p.y;
 
-	// print 1st line
-	gotoxy(x, y);
-	printf("%c", 61);
-	gotoxy(x+1, y);
-	printf("%c", 95);
-	gotoxy(x+2, y);
-	printf("%c", 95);
-	gotoxy(x+3,y);
-	printf("%c",92);
+	char graphics[5][13] =  {
+			{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+			{'=', '_', '_', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+			{' ', ' ', ' ', '|', ' ', 'o', ' ', 'o', ')', '=', '-', '-', ' '},
+			{'=', '-', '-', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+			{' ' , ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
+	};
 
-	// print second line
-	gotoxy(x, y+1);
-	printf(" ");
-	gotoxy(x+1, y+1);
-	printf(" ");
-	gotoxy(x+2, y+1);
-	printf("%c", 124);
-	gotoxy(x+3, y+1);
-	printf("o");
-	gotoxy(x+4, y+1);
-	printf(" ");
-	gotoxy(x+5, y+1);
-	printf("o");
-	gotoxy(x+6, y+1);
-	printf("%c", 41);
-	gotoxy(x+7, y+1);
-	printf("%c", 61);
-	gotoxy(x+8, y+1);
-	printf("%c", 45);
-	gotoxy(x+9, y+1);
-	printf("%c", 45);
-
-	// print last line
-	gotoxy(x, y+2);
-	printf("%c", 61);
-	gotoxy(x+1, y+2);
-	printf("%c", 45);
-	gotoxy(x+2, y+2);
-	printf("%c", 45);
-	gotoxy(x+3, y+2);
-	printf("%c", 47);
-
+	for (int i = 0; i < 5; i++) {
+		for (int j = 0; j < 13; j++) {
+			gotoxy(x+j, y+i);
+			printf("%c", graphics[i][j]);
+		}
+	}
 }
 
-void updatePlayer(Player *p, int speed) {
-	p->y += speed;
+void updatePlayer(Player *p, char input, int w, int h) {
+	// one input only
+
+	if(input == 3){p->y++;}
+	if(input == 1){p->y--;}
+	if(input == 2){p->x--;}
+	if(input == 4){p->x++;}
+
+	if (p->y >= h - 5) {p->y = h - 5;}
+	if (p->y <= 2) {p->y = 2;}
+	if (p->x+12 >= w) {p->x = w-12;}
+	if (p->x <= 2) {p->x = 2;}
 }
