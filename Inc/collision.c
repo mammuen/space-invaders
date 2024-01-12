@@ -61,7 +61,7 @@ int EnemyPlayercollision(Enemy* E, Player* P)
 }
 
 
-int EnemyAsteroidcollision(Enemy* E,Asteriod* A){
+int EnemyAsteroidcollision(Enemy* E,Asteroid* A){
 
 
 	int diff = 2;
@@ -87,7 +87,7 @@ int EnemyAsteroidcollision(Enemy* E,Asteriod* A){
 
 
 
-int BulletAsteroidcollision(Bullet* B,Asteriod* A){
+int BulletAsteroidcollision(Bullet* B,Asteroid* A){
 
 	int diff = 10;
 

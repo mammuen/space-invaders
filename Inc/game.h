@@ -8,12 +8,6 @@
 #ifndef GAME_H_
 #define GAME_H_
 
-typedef struct{
-	int x;
-	int y;
-	int size;
-	int health;
-} Asteriod;
 
 typedef struct {
 	int w;

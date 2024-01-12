@@ -14,13 +14,14 @@
 #include <string.h>
 #include <enemies.h>
 #include <bullet.h>
+#include "asteroid.h"
 
 
 
 int BulletEnemycollision(Enemy* E, Bullet* B);
 int EnemyPlayercollision(Enemy* E, Player* P);
-int EnemyAsteroidcollision(Enemy* E,Asteriod* A);
-int BulletAsteroidcollision(Bullet* B,Asteriod* A);
+int EnemyAsteroidcollision(Enemy* E,Asteroid* A);
+int BulletAsteroidcollision(Bullet* B,Asteroid* A);
 
 
 
