@@ -50,42 +50,40 @@ Asteroid* initAsteroid(int count) {
 void updateAsteroid(Asteroid* asteroids, int count) {
     for (int i = 0; i < count; i++) {
         if (asteroids[i].health > 0) {
-        	// Check if the asteroid has reached the upper limit
+            // Check if the asteroid has reached the upper limit
             if (asteroids[i].y <= -3) {
-            	// Deleting the current asteroid
+                // Deleting the current asteroid
                 asteroids[i].health = 0;
-
-                int validPosition;
-                do {
-                    validPosition = 1;
-                    // Creation of a new asteroid
-                    asteroids[i].x = (rand() % 60) + 59; // New X position in range [59, 118]
-                    asteroids[i].y = (rand() % 46) + 55; // New Y position in range [55, 100]
-                    asteroids[i].size = (rand() % 5) + 4; // New size from 4 to 8
-                    asteroids[i].health = 2; // New number of lives
-
-                    // Checking a new asteroid for intersection with other asteroids
-                    for (int j = 0; j < count; j++) {
-                        if (j != i) {
-                            int dx = asteroids[i].x - asteroids[j].x;
-                            int dy = asteroids[i].y - asteroids[j].y;
-                            int distanceSquared = dx * dx + dy * dy;
-
-                            if (distanceSquared < 100) {
-                                validPosition = 0;
-                                break;
-                            }
-                        }
-                    }
-                } while (!validPosition);
             } else {
                 asteroids[i].y -= 1; // Moving the asteroid up
-                // I think it's possible to add additional logic such as collision detection
             }
+        } else if (asteroids[i].health == 0) {
+            int validPosition;
+            do {
+                validPosition = 1;
+                // Creation of a new asteroid
+                asteroids[i].x = (rand() % 60) + 59; // New X position in range [59, 118]
+                asteroids[i].y = (rand() % 46) + 55; // New Y position in range [55, 100]
+                asteroids[i].size = (rand() % 5) + 4; // New size from 4 to 8
+                asteroids[i].health = 2; // New number of lives
+
+                // Checking a new asteroid for intersection with other asteroids
+                for (int j = 0; j < count; j++) {
+                    if (j != i && asteroids[j].health > 0) {
+                        int dx = asteroids[i].x - asteroids[j].x;
+                        int dy = asteroids[i].y - asteroids[j].y;
+                        int distanceSquared = dx * dx + dy * dy;
+
+                        if (distanceSquared < 100) {
+                            validPosition = 0;
+                            break;
+                        }
+                    }
+                }
+            } while (!validPosition);
         }
     }
 }
-
 
 void drawAsteroid(Asteroid* asteroids, int count) {
     for (int i = 0; i < count; i++) {
