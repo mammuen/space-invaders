@@ -17,7 +17,9 @@ typedef struct {
 	int powerup;
 } Player;
 
+extern char grahpics;
+
 void drawPlayer(Player p);
-void updatePlayer(Player *p, int speed);
+void updatePlayer(Player *p, char input, int h);
 
 #endif /* PLAYER_H_ */

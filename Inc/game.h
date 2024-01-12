@@ -28,7 +28,6 @@ void updateAsteroid();
 void drawGameDisplay(Window win);
 void showCursor();
 void hideCursor();
-void updatePlayer();
 void getKeystrokes();
 
 #endif /* GAME_H_ */
