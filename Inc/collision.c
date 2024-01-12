@@ -97,23 +97,18 @@ int BulletAsteroidcollision(Bullet* B,Asteriod* A){
 			if(B[i].health > 0){
 
 
- 			if( abs(A[i].x - B[j].x + A[i].size/2) < diff ){
-				if( abs(A[i].y - B[j].y + A[i].size/2) < diff ){
+ 			if( abs(A[i].x - B[j].x ) < diff ){
+				if( abs(A[i].y - B[j].y ) < diff ){
 
 					B[i].health = 0;
 					return 1;
 
-			}
+				}
  			}
 		}
 	}
 }
 }
-
-
-
-
-
 	return 0;
 }
 
