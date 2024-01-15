@@ -4,6 +4,19 @@
 #include "ansi.h"
 #include "game.h"
 
+
+
+Powerup* initPowerup(){
+	Powerup* P = (Powerup*) malloc(sizeof(Powerup));
+	P->health = 0;
+	P->x      = 0;
+	P->y      = 0;
+
+	return P;
+
+}
+
+
 void drawGameDisplay(Window win) {
 	int w = win.w;
 	int h = win.h;
