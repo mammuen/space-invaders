@@ -36,9 +36,6 @@ char keyboardinput(){
 	case 'd':
 		output = 4;
 		break;
-	case 'p':
-		output = 100;
-		break;
 	case ' ':
 		output = 10;
 		break;

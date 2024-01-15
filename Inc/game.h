@@ -26,7 +26,6 @@ void drawGameDisplay(Window win);
 void showCursor();
 void hideCursor();
 void drawStars();
-
-
+void bosskey();
 
 #endif /* GAME_H_ */

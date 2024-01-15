@@ -162,7 +162,7 @@ int PlayerAsteroidPowerupCollision(Player* B,Asteroid* A,Powerup* P){
 
 
 	}
-
+	return 0;
 }
 
 
