@@ -15,6 +15,7 @@ Bullet* initBullets() {
         for (int i = 0; i < 6; i++) {
         	bullets[i].health = 0;
         	bullets[i].type = 1;
+        	bullets[i].powerup = 1;
         	bullets[i].x = 0;
         	bullets[i].y = 0;
         }
@@ -33,6 +34,7 @@ void spawn1Bullet(Bullet* bullets, Player* p){
 	bullets[ p->bullets ].health = 1;
 	bullets[ p->bullets ].x = p->x+10;
 	bullets[ p->bullets ].y = p->y+2;
+	bullets[ p->bullets ].powerup = p->powerup + 1;
 	p->bullets--;
 	}
 	else {

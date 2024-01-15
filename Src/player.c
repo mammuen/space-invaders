@@ -31,11 +31,12 @@ void drawPlayer(Player p) {
 
 void updatePlayer(Player *p, char input, int w, int h) {
 	// one input only
+	/*
 	if(input == 3){p->y++;}
 	if(input == 1){p->y--;}
 	if(input == 2){p->x--;}
 	if(input == 4){p->x++;}
-
+*/
 
 	if(input &(0x10)){p->y++;}
 	if(input &(0x20)){p->y--;}

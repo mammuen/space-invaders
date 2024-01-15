@@ -13,7 +13,7 @@ Enemy* initEnemy() {
 
     if (enemies != NULL) {
         for (int i = 0; i < 6; i++) {
-            enemies[i].health = 1;
+            enemies[i].health = 2;
             enemies[i].speed = 1;
             enemies[i].type = 1;
             enemies[i].x = 170;
@@ -30,7 +30,7 @@ Enemy* initEnemy() {
 void spawnEnemies(Enemy* enemies){
 
 	for(int i = 0; i < 6; i++){
-		enemies[i].health = 1;
+		enemies[i].health = 2;
 		enemies[i].speed = 1;
 		enemies[i].type = 1;
 		enemies[i].x = 170;

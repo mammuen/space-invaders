@@ -116,7 +116,9 @@ void bosskey() {
 	printf("** Work Stuff **");
 	while (1) {
 		char input = keyboardinput();
-		if (input == 'p') {
+		char input2 = readjoystick();
+
+		if (input == 'p' || input2 == 0x02) {
 			break;
 		}
 	}

@@ -29,7 +29,9 @@ int BulletEnemycollision(Enemy* E, Bullet* B)
 				if( abs(B[i].y - E[j].y - 1) < diff ){
 
 					B[i].health = 0;
-					E[j].health = 0;
+
+
+					E[j].health = E[j].health - B[j].powerup;
 					return 1;
 
 			}
