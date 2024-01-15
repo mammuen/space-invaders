@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "ansi.h"
 #include "game.h"
+#include "keyboard.h"
 
 
 
@@ -108,4 +109,22 @@ void drawStars(){
 	gotoxy(144, 32);
 	printf("*");
 }
+
+void bosskey() {
+	clrscr();
+	gotoxy(2, 2);
+	printf("** Work Stuff **");
+	while (1) {
+		char input = keyboardinput();
+		if (input == 'p') {
+			break;
+		}
+	}
+}
+
+
+
+
+
+
 

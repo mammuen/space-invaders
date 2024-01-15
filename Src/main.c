@@ -14,7 +14,6 @@
 #include <collision.h>
 
 
-
 int main() {
 
     //setup
@@ -58,6 +57,10 @@ int main() {
 
 			spawn1Bullet(B,&p1);
 			bulletamount(LCD, p1.bullets+1);
+		}
+
+		if (input == 'p') {
+			bosskey();
 		}
 
 		if (p % 10 == 0) {
