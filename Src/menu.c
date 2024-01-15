@@ -11,6 +11,7 @@
 #include "joystick.h"
 #include "stm32f30x_conf.h"
 #include "30010_io.h"
+#include "LED.h"
 #include <stdbool.h>
 
 void delay(uint32_t count) {

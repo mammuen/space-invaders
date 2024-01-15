@@ -150,6 +150,7 @@ static int inputprev;
 	    break;
 	  default:
 	    // code block
+		  break;
 	}
 	}
 	inputprev = a;
