@@ -170,6 +170,19 @@ int PlayerAsteroidPowerupCollision(Player* Pl,Asteroid* A,Powerup* P){
 
 			}}
 	}
+
+	if( abs(Pl->x - P->x) < 5){
+		if( abs(Pl->y - P->y) < 5){
+			if(P->health != 0){
+
+			Pl->powerup = 1;
+			P->health = 0;
+
+		}}}
+
+
+
+
 	return 0;
 }
 
