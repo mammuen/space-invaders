@@ -18,6 +18,8 @@ typedef struct {
 void drawGameDisplay(Window win);
 void showCursor();
 void hideCursor();
-void getKeystrokes();
+void drawStars();
+
+
 
 #endif /* GAME_H_ */
