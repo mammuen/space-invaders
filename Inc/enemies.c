@@ -19,11 +19,7 @@ Enemy* initEnemy() {
             enemies[i].x = 170;
             enemies[i].y = i * 8 + 5;
         }
-        enemies[0].health = 0;
-        enemies[2].health = 0;
-        enemies[3].health = 0;
-        enemies[4].health = 0;
-        enemies[5].health = 0;
+
 
 
     }
@@ -40,11 +36,7 @@ void spawnEnemies(Enemy* enemies){
 		enemies[i].x = 170;
 		enemies[i].y = i*8 + 5;
 	}
-    enemies[0].health = 0;
-    enemies[2].health = 0;
-    enemies[3].health = 0;
-    enemies[4].health = 0;
-    enemies[5].health = 0;
+
 
 
 

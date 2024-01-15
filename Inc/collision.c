@@ -7,6 +7,14 @@
 
 #include "collision.h"
 
+void spawnpowerup(int x, int y){
+
+	gotoxy(x,y);
+	printf("POW");
+
+
+}
+
 
 
 int BulletEnemycollision(Enemy* E, Bullet* B)
@@ -61,24 +69,41 @@ int EnemyPlayercollision(Enemy* E, Player* P)
 }
 
 
-int EnemyAsteroidcollision(Enemy* E,Asteroid* A){
+int EnemyAsteroidcollision(Enemy* E,Asteroid* Asteroid){
 
+	int a;
+	int b;
+	int c;
+	int d;
 
-	int diff = 2;
+	int diff = 5;
 
-	for(int i = 0; i < 6; i++){
+	for(int i = 0; i < 3; i++){
 		for(int j = 0; j < 6; j++){
-			if(A[i].health > 0){
 
- 			if( abs(A[i].x - E[j].x - A[i].size/2) < diff ){
-				if( abs(A[i].y - E[j].y - A[i].size/2) < diff ){
+			if(E[j].health > 0){
+			if(Asteroid[i].health > 0){
 
-					A[i].health = 0;
+
+			a = Asteroid[i].x + 3;
+			b = E[j].x;
+
+			c = Asteroid[i].y + 3;
+			d = E[j].y;
+
+
+			if( abs( a - b ) < diff ){
+
+ 			if( abs(c  - d ) < diff ){
+
+
+ 					Asteroid[i].health = 0;
 					return 1;
 
 			}
 		}
-	}
+		}
+		}
 	}
 }
 
@@ -89,18 +114,36 @@ int EnemyAsteroidcollision(Enemy* E,Asteroid* A){
 
 int BulletAsteroidcollision(Bullet* B,Asteroid* A){
 
-	int diff = 10;
+	int diff;
 
-	for(int i = 0; i < 6; i++){
+	int a;
+	int b;
+	int c;
+	int d;
+
+	for(int i = 0; i < 3; i++){
 		for(int j = 0; j < 6; j++){
 			if(A[i].health > 0){
-			if(B[i].health > 0){
+			if(B[j].health > 0){
+
+				diff  = A[i].size;
+
+				a = A[i].x + diff/2;
+				b = B[j].x;
+
+				c = A[i].y + diff/2;
+				d = B[j].y;
 
 
- 			if( abs(A[i].x - B[j].x ) < diff ){
-				if( abs(A[i].y - B[j].y ) < diff ){
 
-					B[i].health = 0;
+ 			if( abs(c - d) < diff){
+				if( abs(a - b) < diff ){
+
+					B[j].health = 0;
+					A[i].health--;
+					if(A[i] == 0){
+						spawnpowerup(A[i].x,A[i].y);
+					}
 					return 1;
 
 				}
@@ -111,6 +154,14 @@ int BulletAsteroidcollision(Bullet* B,Asteroid* A){
 }
 	return 0;
 }
+
+
+int PlayerAsteroidPowerupCollision(Player* B,Asteroid* A,Powerup* P){
+
+
+
+}
+
 
 
 

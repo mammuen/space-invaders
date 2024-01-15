@@ -20,7 +20,7 @@
 
 int BulletEnemycollision(Enemy* E, Bullet* B);
 int EnemyPlayercollision(Enemy* E, Player* P);
-int EnemyAsteroidcollision(Enemy* E,Asteroid* A);
+int EnemyAsteroidcollision(Enemy* E,Asteroid* Asteroid);
 int BulletAsteroidcollision(Bullet* B,Asteroid* A);
 
 

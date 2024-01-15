@@ -1,5 +1,23 @@
-#include "joystick.h"
-#include "stm32f30x.h"
+/*
+ * project5.c
+ *
+ *  Created on: Jan 15, 2024
+ *      Author: markus
+ */
+
+#include "LED.h"
+
+char readJoystick(){
+		char up = readgpioA4() >> 1;
+		char down = readgpioB0() << 1;
+		char left = readgpioC1() << 1;
+		char right = readgpioC0();
+		char center = readgpioB5() >> 1;
+
+		char output = up | down | left | right | center;
+		return output;
+}
+
 
 int ledsetup(){
 
@@ -36,8 +54,6 @@ int ledsetup(){
 	GPIOB->MODER &= ~(0x00000003 << (pin * 2)); // Clear mode register
 	GPIOB->MODER |= (0x00000001 << (pin * 2)); // Set mode register (0x00 –Input, 0x01 - Output, 0x02 - Alternate Function, 0x03 - Analog in/out)
 
-	return 0;
-
 }
 
 int setup(){
@@ -45,6 +61,9 @@ int setup(){
 	RCC->AHBENR |= RCC_AHBPeriph_GPIOA; // Enable clock for GPIO Port A
 	RCC->AHBENR |= RCC_AHBPeriph_GPIOB; // Enable clock for GPIO Port B
 	RCC->AHBENR |= RCC_AHBPeriph_GPIOC; // Enable clock for GPIO Port C
+
+
+
 
 	// Set pin PA4 to input
 	GPIOA->MODER &= ~(0x00000003 << (4 * 2)); // Clear mode register
@@ -57,6 +76,7 @@ int setup(){
 	GPIOB->PUPDR &= ~(0x00000003 << (0 * 2)); // Clear push/pull register
 	GPIOB->PUPDR |= (0x00000002 << (0 * 2)); // Set push/pull register (0x00 - No pull, 0x01 - Pull-up, 0x02 - Pull-down)
 
+
 	// Set pin PC1 and PC0 to input
 	GPIOC->MODER &= ~(0x0000000f << (0 * 2)); // Clear mode register for the first 4 bit
 	GPIOC->MODER |= (0x00000000 << (0 * 2)); // Set mode register
@@ -65,11 +85,17 @@ int setup(){
 	GPIOC->PUPDR |= (0x0000000c << (0 * 2)); // Set push/pull register
 	//(0x00 - No pull, 0x01 - Pull-up, 0x02 - Pull-down)
 
+
 	// Set pin PB5 to input
 	GPIOB->MODER &= ~(0x00000003 << (5 * 2)); // Clear mode register
 	GPIOB->MODER |= (0x00000000 << (5 * 2)); // Set mode register (0x00 –Input, 0x01 - Output, 0x02	// Alternate Function, 0x03 - Analog in/out)
 	GPIOB->PUPDR &= ~(0x00000003 << (5 * 2)); // Clear push/pull register
 	GPIOB->PUPDR |= (0x00000002 << (5 * 2)); // Set push/pull register (0x00 - No pull, 0x01 - Pull-up, 0x02 - Pull-down)
+
+
+
+
+
 
 /*
 	// Set pin PA1 to output
@@ -87,6 +113,14 @@ return 0;
 
 
 void setLed(int in){
+
+
+
+	/* if input is 1 then the red led pulls low turning the led on
+	 * if input is 2 then the blue turns on
+	 * if input is 4 then the green turns on
+	 * if input is 8 then the white light turns on
+	 */
 
 	if(in == 1){
 		offRed(3);
@@ -110,7 +144,11 @@ void setLed(int in){
 		offRed(1);
 		offGreen(1);
 	}
+
 }
+
+
+
 
 // set PC7 to output
 // set PB4 to output
@@ -141,6 +179,9 @@ void offGreen(int in){
 void offBlue(int in){
 	GPIOA->ODR &= ~(0x0001 << 9); //Set pin PA1 to low
 }
+
+
+
 
 
 
@@ -178,13 +219,5 @@ int readgpioB5(){
 	return val;
 }
 
-char readJoystick(){
-		char up = readgpioA4() >> 1;
-		char down = readgpioB0() << 1;
-		char left = readgpioC1() << 1;
-		char right = readgpioC0();
-		char center = readgpioB5() >> 1;
 
-		char output = up | down | left | right | center;
-		return output;
-}
+
