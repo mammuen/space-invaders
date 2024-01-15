@@ -20,5 +20,9 @@ void helpMenu(Window win);
 void diffMenu(Window win);
 void delay(uint32_t count);
 void drawTitle();
+void endScreen(Window win);
+void drawEnd();
+void drawTitleEnd();
+void drawBack();
 
 #endif /* MENU_H_ */

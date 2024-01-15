@@ -38,6 +38,24 @@ void drawTitle() {
     printf("    \\|_________|                                                                                                                                              ");
 }
 
+void drawTitleEnd() {
+	gotoxy(42, 10);
+	printf(" ________  ________  _____ ______   _______           ________  ___      ___ _______   ________     ");
+	gotoxy(42, 11);
+	printf("|\\   ____\\|\\   __  \\|\\   _ \\  _   \\|\\  ___ \\         |\\   __  \\|\\  \\    /  /|\\  ___ \\ |\\   __  \\    ");
+	gotoxy(42, 12);
+	printf("\\ \\  \\___|\\ \\  \\|\\  \\ \\  \\\\\\__\\ \\  \\ \\   __/|        \\ \\  \\|\\  \\ \\  \\  /  / | \\   __/|\\ \\  \\|\\  \\   ");
+	gotoxy(42, 13);
+	printf(" \\ \\  \\  __\\ \\   __  \\ \\  \\\\|__| \\  \\ \\  \\_|/__       \\ \\  \\ \\  \\ \\  \\/  / / \\ \\  \\_|/_\\ \\   _  _\\  ");
+	gotoxy(42, 14);
+	printf("  \\ \\  \\|\\  \\ \\  \\ \\  \\ \\  \\    \\ \\  \\ \\  \\_|\\ \\       \\ \\  \\ \\  \\ \\    / /   \\ \\  \\_|\\ \\ \\  \\\\  \\| ");
+	gotoxy(42, 15);
+	printf("   \\ \\_______\\ \\__\\ \\__\\ \\__\\    \\ \\__\\ \\_______\\       \\ \\_______\\ \\__/ /     \\ \\_______\\ \\__\\\\ _\\ ");
+	gotoxy(42, 16);
+	printf("    \\|_______|\\|__|\\|__|\\|__|     \\|__|\\|_______|        \\|_______|\\|__|/       \\|_______|\\|__|\\|__|");
+
+}
+
 void drawMenu(int selectedItem) {
 	drawTitle();
 
@@ -195,6 +213,51 @@ void drawdiff(int selectedItem) {
 
 }
 
+void drawEnd(int selectedItem) {
+	drawTitleEnd();
+
+    if (selectedItem == 1) {
+    	gotoxy(72,25);
+    	printf("      ____ ____ _  _ ___ _ _  _ _  _ ____ ");
+    	gotoxy(72,26);
+    	printf("__    |    |  | |\\ |  |  | |\\ | |  | |___ ");
+    	gotoxy(72,27);
+    	printf("      |___ |__| | \\|  |  | | \\| |__| |___ ");
+
+    	gotoxy(82,28);
+    	printf("      ____ _  _ _ ___ ");
+    	gotoxy(82,29);
+    	printf("      |___  \\/  |  |  ");
+    	gotoxy(82,30);
+    	printf("      |___ _/\\_ |  |  ");
+
+    } else {
+    	gotoxy(72,25);
+    	printf("      ____ ____ _  _ ___ _ _  _ _  _ ____ ");
+    	gotoxy(72,26);
+    	printf("      |    |  | |\\ |  |  | |\\ | |  | |___ ");
+    	gotoxy(72,27);
+    	printf("      |___ |__| | \\|  |  | | \\| |__| |___ ");
+
+    	gotoxy(82,28);
+    	printf("      ____ _  _ _ ___ ");
+    	gotoxy(82,29);
+    	printf("__    |___  \\/  |  |  ");
+    	gotoxy(82,30);
+    	printf("      |___ _/\\_ |  |  ");
+    }
+}
+
+void drawBack() {
+	gotoxy(75, 40);
+	printf("      ___  ____ ____ _  _ ");
+	gotoxy(75, 41);
+	printf("__    |__] |__| |    |_/  ");
+	gotoxy(75, 42);
+	printf("      |__] |  | |___ | \\_ ");
+
+}
+
 void diffMenu(Window win) {
     uart_init(460800);
     hideCursor();
@@ -249,7 +312,54 @@ void helpMenu(Window win) {
     hideCursor();
     setup();
     drawGameDisplay(win);
-}
+    drawTitle();
+	gotoxy(62,23);
+	printf("Basic Controls");
+	gotoxy(62,24);
+	printf("  Movement: Use JOYSTICK to navigate your spaceship");
+	gotoxy(62,25);
+	printf("  Shooting: Press RED BUTTON to attack enemies");
+	gotoxy(62,26);
+	printf("  Special Abilities: Activate them using WHITE BUTTON");
+
+	gotoxy(62,28);
+	printf("Objective of the Game");
+	gotoxy(62,29);
+	printf("  Explore space galaxies, battle enemies and defend the earth");
+
+	gotoxy(62,31);
+	printf("Enemies and Bosses");
+	gotoxy(62,32);
+	printf("  Encounter various enemies and powerful bosses,");
+	gotoxy(62,33);
+	printf("  each with unique abilities and battle tactics");
+
+	gotoxy(62,35);
+	printf("© Space Adventure (Gruppe 16)");
+
+	int selectedItem = 1; // 1 - Back to main menu
+	    bool backSelected = false;
+
+	    while (!backSelected) {
+	        int joystickInput = readJoystick();
+
+	        if (joystickInput > 8) {
+	            switch (selectedItem) {
+	                case 1:
+	                    clrscr();
+	                    backSelected = true;
+	                    break;
+	            }
+	        }
+
+	        drawBack();
+	        drawGameDisplay(win);
+
+	        delay(100000);
+	    }
+	    clrscr();
+	    selectMenu(win);
+	}
 
 void selectMenu(Window win){
 	uart_init(460800);
@@ -274,12 +384,10 @@ void selectMenu(Window win){
 	                    clrscr();
 
 	                    if (selectedItem == 1) {
-	                        // Open difficulties menu
 	                        diffMenu(win);
 	                        break;
 	                    }
 	                    else if (selectedItem == 2) {
-	                        // Open help menu
 	                        helpMenu(win);
 	                        break;
 	                    }
@@ -292,6 +400,42 @@ void selectMenu(Window win){
 	    }
 }
 
-void showTitle() {
+void endScreen(Window win) {
+    uart_init(460800);
+    hideCursor();
+    setup();
 
+    int selectedItem = 1; // 1 - Play again, 2 - Back to main menu
+    bool backSelected = false;
+
+    while (!backSelected) {
+        int joystickInput = readJoystick();
+
+        if (joystickInput == 8 && selectedItem > 1) {
+            clrscr();
+            selectedItem--; // Move up in the menu
+        } else if (joystickInput == 2 && selectedItem < 2) {
+            clrscr();
+            selectedItem++; // Move down in the menu
+        } else if (joystickInput > 8) {
+
+            switch (selectedItem) {
+                case 1:
+                	clrscr();
+                	diffMenu(win);
+                    break;
+                case 2:
+                    backSelected = true;
+                    break;
+            }
+        }
+
+        drawEnd(selectedItem);
+        drawGameDisplay(win);
+
+        delay(100000);
+    }
+    clrscr();
+    selectMenu(win);
 }
+
