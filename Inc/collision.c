@@ -141,7 +141,7 @@ int BulletAsteroidcollision(Bullet* B,Asteroid* A){
 
 					B[j].health = 0;
 					A[i].health--;
-					if(A[i] == 0){
+					if(A[i].health == 0){
 						spawnpowerup(A[i].x,A[i].y);
 					}
 					return 1;
