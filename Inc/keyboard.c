@@ -47,15 +47,7 @@ char keyboardinput(){
 	default:
 		output = input;
 	}
-/*
-	 the output is like this
-	 left "d" = 1000
-	 up "w"   = 0100
-	 down "s" = 0010
-	 right "a"= 0001
-	 p outputs 64
-	 and enter clears the screen
-*/
+
 
 	return output;
 }
