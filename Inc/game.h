@@ -21,7 +21,7 @@ typedef struct {
 } Powerup;
 
 
-
+Powerup* initPowerup();
 void drawGameDisplay(Window win);
 void showCursor();
 void hideCursor();
