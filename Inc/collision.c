@@ -158,7 +158,10 @@ int BulletAsteroidcollision(Bullet* B,Asteroid* A){
 
 int PlayerAsteroidPowerupCollision(Player* B,Asteroid* A,Powerup* P){
 
+	for(int i = 0; i < 3;i++){
 
+
+	}
 
 }
 

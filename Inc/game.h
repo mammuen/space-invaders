@@ -14,6 +14,13 @@ typedef struct {
 	int h;
 } Window;
 
+typedef struct {
+	int x;
+	int y;
+	int health;
+} Powerup;
+
+
 
 void drawGameDisplay(Window win);
 void showCursor();
