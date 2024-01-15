@@ -7,12 +7,11 @@
 
 #include "collision.h"
 
-void spawnpowerup(int x, int y){
-
-	gotoxy(x,y);
-	printf("POW");
-
-
+void spawnpowerup(Powerup* P){
+if(P->health != 0){
+	gotoxy(P->x,P->y);
+	printf("POW-UP");
+}
 }
 
 
@@ -112,7 +111,7 @@ int EnemyAsteroidcollision(Enemy* E,Asteroid* Asteroid){
 
 
 
-int BulletAsteroidcollision(Bullet* B,Asteroid* A){
+int BulletAsteroidcollision(Bullet* B,Asteroid* A, Powerup* P){
 
 	int diff;
 
@@ -142,7 +141,10 @@ int BulletAsteroidcollision(Bullet* B,Asteroid* A){
 					B[j].health = 0;
 					A[i].health--;
 					if(A[i].health == 0){
-						spawnpowerup(A[i].x,A[i].y);
+
+						P->health = 1;
+						P->x = A[i].x;
+						P->y = A[i].y;
 					}
 					return 1;
 
@@ -156,14 +158,32 @@ int BulletAsteroidcollision(Bullet* B,Asteroid* A){
 }
 
 
-int PlayerAsteroidPowerupCollision(Player* B,Asteroid* A,Powerup* P){
+int PlayerAsteroidPowerupCollision(Player* Pl,Asteroid* A,Powerup* P){
 
 	for(int i = 0; i < 3;i++){
+			if( abs(Pl->x - A[i].x  + A[i].size/2) < A[i].size ){
+			if( abs(Pl->y - A[i].y  + A[i].size/2)< A[i].size ){
+				Pl->health = Pl->health -1;
+				Pl->x = 3;
+				Pl->y = 5;
+				return 1;
 
-
+			}}
 	}
 
+	if( abs(Pl->x - P->x) < 5){
+	if( abs(Pl->y - P->y) < 5){
+		if(P->health != 0){
+
+		Pl->powerup = 1;
+		P->health = 0;
+
+	}}}
+
+
+return 0;
 }
+
 
 
 
