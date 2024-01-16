@@ -93,36 +93,53 @@ void bulletamount(uint8_t* LCD, uint8_t amount){
 	case 5:
 		bullet5(LCD);
 		break;
+	case 6:
+		bullet6(LCD);
+		break;
+	case 7:
+		bullet7(LCD);
+		break;
 	default:
-		bullet5(LCD);
+		bullet8(LCD);
 	}
 }
 
 void bullet0(uint8_t* LCD){
-	char bullets[6] = {129, 129, 129, 129, 129};
+	char bullets[9] = {129, 129, 129, 129, 129, 129, 129, 129};
 	stringAdd(LCD, bullets,0,3 );
 }
 void bullet1(uint8_t* LCD){
-	char bullets[6] = {130, 129, 129, 129, 129};
+	char bullets[9] = {130, 129, 129, 129, 129, 129, 129, 129};
 	stringAdd(LCD, bullets,0,3 );
 }
 void bullet2(uint8_t* LCD){
-	char bullets[6] = {130, 130, 129, 129, 129};
+	char bullets[9] = {130, 130, 129, 129, 129, 129, 129, 129};
 	stringAdd(LCD, bullets,0,3 );
 }
 void bullet3(uint8_t* LCD){
-	char bullets[6] = {130, 130, 130, 129, 129};
+	char bullets[9] = {130, 130, 130, 129, 129, 129, 129, 129};
 	stringAdd(LCD, bullets,0,3 );
 }
 void bullet4(uint8_t* LCD){
-	char bullets[6] = {130, 130, 130, 130, 129};
+	char bullets[9] = {130, 130, 130, 130, 129, 129, 129, 129};
 	stringAdd(LCD, bullets,0,3 );
 }
 void bullet5(uint8_t* LCD){
-	char bullets[6] = {130, 130, 130, 130, 130};
+	char bullets[9] = {130, 130, 130, 130, 130, 129, 129, 129};
 	stringAdd(LCD, bullets,0,3 );
 }
-
+void bullet6(uint8_t* LCD){
+	char bullets[9] = {130, 130, 130, 130, 130, 130, 129, 129};
+	stringAdd(LCD, bullets,0,3 );
+}
+void bullet7(uint8_t* LCD){
+	char bullets[9] = {130, 130, 130, 130, 130, 130, 130, 129};
+	stringAdd(LCD, bullets,0,3 );
+}
+void bullet8(uint8_t* LCD){
+	char bullets[9] = {130, 130, 130, 130, 130, 130, 130, 130};
+	stringAdd(LCD, bullets,0,3 );
+}
 
 
 

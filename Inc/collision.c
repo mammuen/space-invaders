@@ -21,7 +21,7 @@ int BulletEnemycollision(Enemy* E, Bullet* B)
 
 	int diff = 2;
 
-	for(int i = 0; i < 6; i++){
+	for(int i = 0; i < 8; i++){
 		for(int j = 0; j < 6; j++){
 			if(B[i].health != 0){
 
@@ -123,7 +123,7 @@ int BulletAsteroidcollision(Bullet* B,Asteroid* A, Powerup* P){
 	int d;
 
 	for(int i = 0; i < 3; i++){
-		for(int j = 0; j < 6; j++){
+		for(int j = 0; j < 8; j++){
 			if(A[i].health > 0){
 			if(B[j].health > 0){
 

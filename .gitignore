@@ -6,3 +6,4 @@ space-invaders Debug.launch
 .settings/com.st.stm32cube.ide.mcu.sfrview.prefs
 space-invaders Debug.launch
 space-invaders Debug.launch
+*.launch
