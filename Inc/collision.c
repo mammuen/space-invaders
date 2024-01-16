@@ -198,8 +198,6 @@ int gravity(Asteroid* A, Bullet* B){
 				if( abs(A[j].x + A[j].size/2 - (B[i].x >> 16)) < 4 ){
 
 					B[i].Vy = 1000/(A[j].y - (B[i].y >> 16)) << 6;
-					printf("%d",B[i].Vy);
-
 
 				}
 

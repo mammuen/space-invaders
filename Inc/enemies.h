@@ -24,7 +24,7 @@ typedef struct{
 
 extern char enemyPrint[3][4];
 
-Enemy* initEnemy();
+Enemy* initEnemy(int diff);
 void drawEnemies(Enemy*);
 void spawnEnemies(Enemy*);
 

@@ -16,12 +16,12 @@
 
 void drawMenu(int selectedItem);
 void drawdiff(int selectedItem);
-void selectMenu(Window win);
+int selectMenu(Window win);
 void helpMenu(Window win);
-void diffMenu(Window win);
+int  diffMenu(Window win);
 void delay(uint32_t count);
 void drawTitle();
-void endScreen(Window win, Player P);
+int endScreen(Window win, Player P);
 void drawEnd();
 void drawTitleEnd();
 void drawBack();

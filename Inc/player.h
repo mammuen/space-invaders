@@ -19,6 +19,8 @@ typedef struct {
 
 extern char grahpics;
 
+
+void playerinit(Player* p1);
 void drawPlayer(Player p);
 void updatePlayer(Player *p, char input, int w, int h);
 

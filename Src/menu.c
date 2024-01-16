@@ -259,13 +259,17 @@ void drawBack() {
 
 }
 
-void diffMenu(Window win) {
-    uart_init(460800);
+int diffMenu(Window win) {
+    //uart_init(460800);
     hideCursor();
-    setup();
+    //setup();
+
+
 
     int selectedItem = 1; // 1 - easy, 2 - normal, 3 - hard, 4 - back
     bool backSelected = false; // Flag to check if back is selected
+
+    delay(5000000);
 
     while (!backSelected) {
         int joystickInput = readJoystick(); // Read joystick input once per loop iteration
@@ -282,14 +286,17 @@ void diffMenu(Window win) {
                 case 1:
                     // EASY MODE
                     // add function
+                	return 1;
                     break;
                 case 2:
                     // NORMAL MODE
                     // add function
+                	return 2;
                     break;
                 case 3:
                     // HARD MODE
                     // add function
+                	return 3;
                     break;
                 case 4:
                     backSelected = true;
@@ -301,6 +308,7 @@ void diffMenu(Window win) {
         drawGameDisplay(win);
 
         delay(100000);
+
     }
     clrscr();
     selectMenu(win);
@@ -308,9 +316,9 @@ void diffMenu(Window win) {
 
 
 void helpMenu(Window win) {
-	uart_init(460800);
+	//uart_init(460800);
     hideCursor();
-    setup();
+    //setup();
     drawGameDisplay(win);
     drawTitle();
 	gotoxy(62,23);
@@ -361,8 +369,8 @@ void helpMenu(Window win) {
 	    selectMenu(win);
 	}
 
-void selectMenu(Window win){
-	uart_init(460800);
+int selectMenu(Window win){
+	//uart_init(460800);
 	hideCursor();
 	setup();
 
@@ -400,10 +408,10 @@ void selectMenu(Window win){
 	    }
 }
 
-void endScreen(Window win, Player P) {
-    uart_init(460800);
+int endScreen(Window win, Player P) {
+    //uart_init(460800);
     hideCursor();
-    setup();
+    //setup();
 
     int selectedItem = 1; // 1 - Play again, 2 - Back to main menu
     bool backSelected = false;
@@ -421,7 +429,7 @@ void endScreen(Window win, Player P) {
             switch (selectedItem) {
                 case 1:
                     clrscr();
-                    diffMenu(win);
+                    return diffMenu(win);
                     break;
                 case 2:
                     backSelected = true;

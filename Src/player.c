@@ -9,6 +9,20 @@
 #include "ansi.h"
 #include <stdio.h>
 
+
+void playerinit(Player* p1){
+	p1->health = 3;
+	p1->x = 10 ;
+	p1->y = 10;
+	p1->score = 0;
+	p1->powerup = 0;
+	p1->bullets = 6;
+
+
+}
+
+
+
 void drawPlayer(Player p) {
 	int x = p.x;
 	int y = p.y;

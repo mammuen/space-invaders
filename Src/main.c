@@ -23,8 +23,8 @@ int counter = 0;
 void TIM1_BRK_TIM15_IRQHandler(void){
 	TIM15->SR &= ~(0x0001);
 	counter++;
-
 }
+
 
 
 
@@ -33,29 +33,26 @@ int main() {
 
 
 
-    //setup
-    uart_init(460800);
-	timerInit();
 
+    //setup
+    uart_init(600000);
+	timerInit();
     joystickinit();
+    speakerSetup();
+    Player p1 = {5, 10, 3, 0, 0, 0};
+
+
     hideCursor();
     clrscr();
 
     uint8_t count = 3;
 
-    //start enemies
-    Enemy*  E = initEnemy();
-    Bullet* B = initBullets();
-    uint8_t* LCD = initalize_LCD();
-    Asteroid* A = initAsteroid(count);
-    Powerup* P = initPowerup();
 
     //variables
     int width = 200;
     int height = 50;
 
 
-    Player p1 = {5, 10, 3, 0, 6, 0};
     // x , y, health ,
     //score, bullets, powerup
 
@@ -68,6 +65,7 @@ int main() {
     p1.bullets = 5;
 
     */
+    int difficulty;
 
     Window window = {width, height}; // creates a window struct
     char input;
@@ -75,33 +73,101 @@ int main() {
 
     clrscr();
 	drawGameDisplay(window);
-	int speed = 50;
+	int speed = 4;
+
+
+	uint8_t* LCD = initalize_LCD();
+
+
+	while(1) {
 
 
 
-	while (1) {
+
+
+
+
+
+	if(p1.health < 2){
+		printf("GAME OVER");
+		int i = 1000000;
+
+		setFreq(300);
+		while(i){
+			i--;
+		}
+		i = 1000000;
+		setFreq(150);
+		while(i){
+		i--;
+		}
+		i = 1000000;
+		setFreq(75);
+		while(i){
+		i--;
+		}
+		setFreq(0);
+
+
+		difficulty = endScreen(window,p1);
+
+
+
+	} else {
+
+	switch(selectMenu(window)){
+		case 1:
+			difficulty = 1;
+			break;
+		case 2:
+			difficulty = 2;
+			break;
+		case 3:
+			difficulty = 3;
+			break;
+		default:
+			difficulty = 3;
+		break;
+	}
+	}
+
+
+	playerinit(&p1);
+
+	//start enemies
+	Enemy*  E = initEnemy(difficulty);
+	Bullet* B = initBullets();
+	Asteroid* A = initAsteroid(count);
+	Powerup* P = initPowerup();
+
+	while (p1.health > 0) {
 
 		// update game object
 		if(counter%2 == 0){
 		updatePlayer(&p1, input2, window.w, window.h);
 		}
 		updateBullets(B);
+		if(p1.powerup){
+			stringAdd(LCD, "POWERUP ACTIVATED",0,2);
+		} else {
+			LCDclrline(LCD,2);
+		}
 
 		if(counter % 100 == 0){
 			clrscr();
+			drawGameDisplay(window);
 			updateAsteroid(A, count);
 			drawAsteroid(A, count);
 
 		}
 
-		if(counter%speed == 0){
+		if(counter%(128/speed) == 0){
 		    healthamount(LCD,p1.health);
 
-		    if(updateEnemies(E)){
-		    	speed = speed - 5;
+		    if(updateEnemies(E,&p1)){
+		    	speed = speed +1;
 		    }
 
-			drawEnemies(E);
 		}
 
 
@@ -112,14 +178,14 @@ int main() {
 		drawPlayer(p1);
 		drawBullets(B);
 		spawnpowerup(P);
+		drawEnemies(E);
+
 
 
 
 
 
 		//input
-
-
 		input = keyboardinput();
 		input2 = readjoystick();
 
@@ -133,19 +199,20 @@ int main() {
 		}
 
 
-
-
 		//collision detection
 		EnemyAsteroidcollision(E,A);
 		BulletAsteroidcollision(B,A,P);
 
 		if(BulletEnemycollision(E,B)){
-			p1.score = p1.score + 10;
+			p1.score = p1.score + 10 * (p1.powerup + 1);
 			setScore(LCD,p1.score);
 		}
 		EnemyPlayercollision(E,&p1);
 		PlayerAsteroidPowerupCollision(&p1,A,P);
-
+		gravity(A,B);
 
 		}
 	}
+
+}
+

@@ -8,10 +8,24 @@
 #include "enemies.h"
 
 
-Enemy* initEnemy() {
+Enemy* initEnemy(int diff) {
     Enemy* enemies = malloc(6 * sizeof(Enemy));
 
+
     if (enemies != NULL) {
+        for (int i = 0; i < 6; i++) {
+            enemies[i].health = 0;
+            enemies[i].speed = 0;
+            enemies[i].type = 0;
+            enemies[i].x = 0;
+            enemies[i].y = 0;
+        }
+
+
+    switch(diff){
+    default:
+    case 3:
+
         for (int i = 0; i < 6; i++) {
             enemies[i].health = 2;
             enemies[i].speed = 1;
@@ -19,6 +33,31 @@ Enemy* initEnemy() {
             enemies[i].x = 170;
             enemies[i].y = i * 8 + 5;
         }
+    break;
+
+    case 2:
+
+        for (int i = 0; i < 4; i++) {
+            enemies[i].health = 2;
+            enemies[i].speed = 1;
+            enemies[i].type = 1;
+            enemies[i].x = 170;
+            enemies[i].y = i * 10 + 5;
+        }
+    break;
+
+    case 1:
+
+        for (int i = 0; i < 2; i++) {
+            enemies[i].health = 2;
+            enemies[i].speed = 1;
+            enemies[i].type = 1;
+            enemies[i].x = 170;
+            enemies[i].y = i* 20 + 5;
+        }
+    break;
+
+    }
 
 
 
