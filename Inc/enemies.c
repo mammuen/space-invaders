@@ -13,7 +13,7 @@ Enemy* initEnemy() {
 
     if (enemies != NULL) {
         for (int i = 0; i < 6; i++) {
-            enemies[i].health = 1;
+            enemies[i].health = 2;
             enemies[i].speed = 1;
             enemies[i].type = 1;
             enemies[i].x = 170;
@@ -30,7 +30,7 @@ Enemy* initEnemy() {
 void spawnEnemies(Enemy* enemies){
 
 	for(int i = 0; i < 6; i++){
-		enemies[i].health = 2;
+		enemies[i].health = 4;
 		enemies[i].speed = 1;
 		enemies[i].type = 1;
 		enemies[i].x = 170;
@@ -69,12 +69,14 @@ void printEnemy(int x,int y){
 }
 
 
-int updateEnemies(Enemy* enemies){
+int updateEnemies(Enemy* enemies, Player* p1){
 
 
 	for(int i = 0; i < 6; i++){
 		if(enemies[i].x < 10){
 			enemies[i].health = 0;
+			p1->health -=1;
+
 
 		}
 	}
@@ -93,12 +95,12 @@ int updateEnemies(Enemy* enemies){
 
 	}
 
-	if(enemies[0].health == 0 &&
-		enemies[1].health == 0 &&
-		enemies[2].health == 0 &&
-		enemies[3].health == 0 &&
-		enemies[4].health == 0 &&
-		enemies[5].health == 0){
+	if(enemies[0].health < 1 &&
+		enemies[1].health < 1 &&
+		enemies[2].health < 1 &&
+		enemies[3].health < 1 &&
+		enemies[4].health < 1 &&
+		enemies[5].health < 1){
 
 		spawnEnemies(enemies);
 

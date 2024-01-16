@@ -21,12 +21,12 @@ int BulletEnemycollision(Enemy* E, Bullet* B)
 
 	int diff = 2;
 
-	for(int i = 0; i < 6; i++){
+	for(int i = 0; i < 8; i++){
 		for(int j = 0; j < 6; j++){
 			if(B[i].health != 0){
 
- 			if( abs(B[i].x - E[j].x+1) < diff ){
-				if( abs(B[i].y - E[j].y - 1) < diff ){
+ 			if( abs((B[i].x >> 16) - E[j].x+1) < diff ){
+				if( abs((B[i].y >> 16) - E[j].y - 1) < diff ){
 
 					B[i].health = 0;
 
@@ -123,17 +123,17 @@ int BulletAsteroidcollision(Bullet* B,Asteroid* A, Powerup* P){
 	int d;
 
 	for(int i = 0; i < 3; i++){
-		for(int j = 0; j < 6; j++){
+		for(int j = 0; j < 8; j++){
 			if(A[i].health > 0){
 			if(B[j].health > 0){
 
 				diff  = A[i].size;
 
 				a = A[i].x + diff/2;
-				b = B[j].x;
+				b = B[j].x >> 16;
 
 				c = A[i].y + diff/2;
-				d = B[j].y;
+				d = B[j].y >> 16;
 
 
 
@@ -178,14 +178,38 @@ int PlayerAsteroidPowerupCollision(Player* Pl,Asteroid* A,Powerup* P){
 			if(P->health != 0){
 
 			Pl->powerup = 1;
+			Pl->health--;
+
 			P->health = 0;
 
 		}}}
 
-
-
-
 	return 0;
+}
+
+int gravity(Asteroid* A, Bullet* B){
+
+	for(int i = 0; i < 8; i++){
+		for(int j = 0; j < 3; j++){
+
+			if(B[i].health > 0){
+
+
+				if( abs(A[j].x + A[j].size/2 - (B[i].x >> 16)) < 4 ){
+
+					B[i].Vy = 1000/(A[j].y - (B[i].y >> 16)) << 6;
+					printf("%d",B[i].Vy);
+
+
+				}
+
+
+
+			}
+		}
+	}
+
+
 }
 
 

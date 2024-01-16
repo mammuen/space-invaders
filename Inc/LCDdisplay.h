@@ -35,6 +35,10 @@ void bullet2(uint8_t* LCD);
 void bullet3(uint8_t* LCD);
 void bullet4(uint8_t* LCD);
 void bullet5(uint8_t* LCD);
+void bullet6(uint8_t* LCD);
+void bullet7(uint8_t* LCD);
+void bullet8(uint8_t* LCD);
+
 //void bullet0(uint8_t* LCD)
 
 void healthamount(uint8_t* LCD, uint8_t amount);
