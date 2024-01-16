@@ -12,6 +12,7 @@
 #include "stdlib.h"
 #include "stdio.h"
 #include "ansi.h"
+#include "player.h"
 
 typedef struct{
 	int x;
@@ -27,7 +28,7 @@ Enemy* initEnemy();
 void drawEnemies(Enemy*);
 void spawnEnemies(Enemy*);
 
-int updateEnemies(Enemy*);
+int updateEnemies(Enemy*,Player* p1);
 void printEnemy(int x,int y);
 
 #endif /* ENEMIES_H_ */

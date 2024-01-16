@@ -15,8 +15,10 @@
 
 
 typedef struct {
-	int x;
-	int y;
+	uint32_t x;
+	uint32_t y;
+	uint32_t Vx;
+	uint32_t Vy;
 	int health;
 	int type;
 	int powerup;
@@ -33,7 +35,7 @@ void printBullet(int x,int y);
 int updateBullets(Bullet* bullets);
 void reload(Bullet* B, Player* P);
 
-extern char bulletPrint[3];
+extern char bulletPrint[3][3];
 
 
 

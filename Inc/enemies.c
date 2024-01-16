@@ -69,12 +69,14 @@ void printEnemy(int x,int y){
 }
 
 
-int updateEnemies(Enemy* enemies){
+int updateEnemies(Enemy* enemies, Player* p1){
 
 
 	for(int i = 0; i < 6; i++){
 		if(enemies[i].x < 10){
 			enemies[i].health = 0;
+			p1->health -=1;
+
 
 		}
 	}
