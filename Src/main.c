@@ -78,7 +78,6 @@ int main() {
 
 	uint8_t* LCD = initalize_LCD();
 
-    clrscr();
 
 	while(1) {
 
@@ -140,6 +139,7 @@ int main() {
 	Bullet* B = initBullets();
 	Asteroid* A = initAsteroid(count);
 	Powerup* P = initPowerup();
+    clrscr();
 
 	while (p1.health > 0) {
 
@@ -168,7 +168,7 @@ int main() {
 		    healthamount(LCD,p1.health);
 		    healthLED(p1.health);
 
-		    if(updateEnemies(E,&p1)){
+		    if(updateEnemies(E,&p1, difficulty)){
 		    	speed = speed +1;
 		    }
 

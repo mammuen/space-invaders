@@ -26,9 +26,11 @@ extern char enemyPrint[3][4];
 
 Enemy* initEnemy(int diff);
 void drawEnemies(Enemy*);
-void spawnEnemies(Enemy*);
+void spawnEnemies(Enemy* enemies,int diff);
 
-int updateEnemies(Enemy*,Player* p1);
+
+
+int updateEnemies(Enemy*,Player* p1, int diff);
 void printEnemy(int x,int y);
 
 #endif /* ENEMIES_H_ */

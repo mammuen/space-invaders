@@ -66,15 +66,47 @@ Enemy* initEnemy(int diff) {
     return enemies;
 }
 
-void spawnEnemies(Enemy* enemies){
+void spawnEnemies(Enemy* enemies,int diff){
 
-	for(int i = 0; i < 6; i++){
-		enemies[i].health = 4;
-		enemies[i].speed = 1;
-		enemies[i].type = 1;
-		enemies[i].x = 170;
-		enemies[i].y = i*8 + 5;
-	}
+
+
+
+    switch(diff){
+    default:
+    case 3:
+
+        for (int i = 0; i < 6; i++) {
+            enemies[i].health = 4;
+            enemies[i].speed = 1;
+            enemies[i].type = 1;
+            enemies[i].x = 170;
+            enemies[i].y = i * 8 + 5;
+        }
+    break;
+
+    case 2:
+
+        for (int i = 0; i < 4; i++) {
+            enemies[i].health = 3;
+            enemies[i].speed = 1;
+            enemies[i].type = 1;
+            enemies[i].x = 170;
+            enemies[i].y = i * 10 + 5;
+        }
+    break;
+
+    case 1:
+
+        for (int i = 0; i < 2; i++) {
+            enemies[i].health = 2;
+            enemies[i].speed = 1;
+            enemies[i].type = 1;
+            enemies[i].x = 170;
+            enemies[i].y = i* 20 + 5;
+        }
+    break;
+
+    }
 
 
 
@@ -108,11 +140,11 @@ void printEnemy(int x,int y){
 }
 
 
-int updateEnemies(Enemy* enemies, Player* p1){
+int updateEnemies(Enemy* enemies, Player* p1, int diff){
 
 
 	for(int i = 0; i < 6; i++){
-		if(enemies[i].x < 10){
+		if(enemies[i].x < 10 && (enemies[i].health > 0)){
 			enemies[i].health = 0;
 			p1->health -=1;
 
@@ -141,7 +173,7 @@ int updateEnemies(Enemy* enemies, Player* p1){
 		enemies[4].health < 1 &&
 		enemies[5].health < 1){
 
-		spawnEnemies(enemies);
+		spawnEnemies(enemies, diff);
 
 
 		return 1;
