@@ -15,6 +15,7 @@
 #include "asteroid.h"
 #include "joystick.h"
 #include "timer.h"
+#include "speaker.h"
 
 
 int counter = 0;
@@ -40,10 +41,19 @@ int main() {
     joystickinit();
     speakerSetup();
     Player p1 = {5, 10, 3, 0, 0, 0};
+    // x , y, health ,
+    //score, bullets, powerup
+
+    setup();
+    ledsetup();
 
 
     hideCursor();
     clrscr();
+
+    void onRed(int in);
+    void onGreen(int in);
+    void onBlue(int in);
 
     uint8_t count = 3;
 
@@ -53,18 +63,8 @@ int main() {
     int height = 50;
 
 
-    // x , y, health ,
-    //score, bullets, powerup
 
 
-    /*
-
-    Player p1;
-    p1.x = 10;
-    p1.y = 2;
-    p1.bullets = 5;
-
-    */
     int difficulty;
 
     Window window = {width, height}; // creates a window struct
@@ -78,6 +78,7 @@ int main() {
 
 	uint8_t* LCD = initalize_LCD();
 
+    clrscr();
 
 	while(1) {
 
@@ -145,8 +146,10 @@ int main() {
 		// update game object
 		if(counter%2 == 0){
 		updatePlayer(&p1, input2, window.w, window.h);
+		gravity(A,B);
 		}
 		updateBullets(B);
+
 		if(p1.powerup){
 			stringAdd(LCD, "POWERUP ACTIVATED",0,2);
 		} else {
@@ -163,6 +166,7 @@ int main() {
 
 		if(counter%(128/speed) == 0){
 		    healthamount(LCD,p1.health);
+		    healthLED(p1.health);
 
 		    if(updateEnemies(E,&p1)){
 		    	speed = speed +1;
@@ -209,7 +213,7 @@ int main() {
 		}
 		EnemyPlayercollision(E,&p1);
 		PlayerAsteroidPowerupCollision(&p1,A,P);
-		gravity(A,B);
+
 
 		}
 	}

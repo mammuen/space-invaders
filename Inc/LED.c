@@ -18,6 +18,55 @@ char readJoystick(){
 		return output;
 }
 
+void onRed(int in);
+void onGreen(int in);
+void onBlue(int in);
+void offRed(int in);
+void offGreen(int in);
+void offBlue(int in);
+
+void healthLED(int in){
+
+	switch(in){
+
+	case 0:
+		//no light
+		onRed(1);
+		onGreen(1);
+		onBlue(1);
+		break;
+	case 1:
+		//red light
+		offRed(1);
+		onGreen(1);
+		onBlue(1);
+		break;
+	case 2:
+		onRed(1);
+		offGreen(1);
+		onBlue(1);
+		//green light
+		break;
+	case 3:
+		offRed(1);
+		offGreen(1);
+		offBlue(1);
+		//white light
+		break;
+	default:
+		offRed(1);
+		offGreen(1);
+		offBlue(1);
+		//white light
+		break;
+
+	}
+
+}
+
+
+
+
 
 int ledsetup(){
 
