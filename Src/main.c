@@ -109,7 +109,7 @@ int main() {
 		setFreq(0);
 
 
-		difficulty = endScreen(window,p1);
+		difficulty = endScreen(window,p1,difficulty);
 
 
 

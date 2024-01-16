@@ -21,7 +21,7 @@ void helpMenu(Window win);
 int  diffMenu(Window win);
 void delay(uint32_t count);
 void drawTitle();
-int endScreen(Window win, Player P);
+int endScreen(Window win, Player P,int difficulty);
 void drawEnd();
 void drawTitleEnd();
 void drawBack();

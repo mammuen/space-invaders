@@ -408,7 +408,7 @@ int selectMenu(Window win){
 	    }
 }
 
-int endScreen(Window win, Player P) {
+int endScreen(Window win, Player P, int difficulty) {
     //uart_init(460800);
     hideCursor();
     //setup();
@@ -429,7 +429,7 @@ int endScreen(Window win, Player P) {
             switch (selectedItem) {
                 case 1:
                     clrscr();
-                    return diffMenu(win);
+                    return difficulty;
                     break;
                 case 2:
                     backSelected = true;
