@@ -13,6 +13,7 @@
 #include "30010_io.h"
 #include "LED.h"
 #include <stdbool.h>
+#include "player.h"
 
 void delay(uint32_t count) {
     while (count--) {
@@ -276,7 +277,7 @@ void diffMenu(Window win) {
             clrscr();
             selectedItem++; // Move down in the menu
         } else if (joystickInput > 8) {
-            // Handle menu item selection
+
             switch (selectedItem) {
                 case 1:
                     // EASY MODE
@@ -291,7 +292,6 @@ void diffMenu(Window win) {
                     // add function
                     break;
                 case 4:
-                    // Back to selectMenu
                     backSelected = true;
                     break;
             }
@@ -303,7 +303,7 @@ void diffMenu(Window win) {
         delay(100000);
     }
     clrscr();
-    selectMenu(win); // Call selectMenu after exiting the while loop
+    selectMenu(win);
 }
 
 
@@ -369,7 +369,7 @@ void selectMenu(Window win){
 	    int selectedItem = 1; // 1 - Play, 2 - Settings
 
 	    while(1) {
-	        int joystickInput = readJoystick(); // Read joystick input once per loop iteration
+	        int joystickInput = readJoystick();
 
 	        if (joystickInput == 8 && selectedItem > 1) {
 	            selectedItem--; // Move up in the menu
@@ -400,7 +400,7 @@ void selectMenu(Window win){
 	    }
 }
 
-void endScreen(Window win) {
+void endScreen(Window win, Player P) {
     uart_init(460800);
     hideCursor();
     setup();
@@ -418,17 +418,19 @@ void endScreen(Window win) {
             clrscr();
             selectedItem++; // Move down in the menu
         } else if (joystickInput > 8) {
-
             switch (selectedItem) {
                 case 1:
-                	clrscr();
-                	diffMenu(win);
+                    clrscr();
+                    diffMenu(win);
                     break;
                 case 2:
                     backSelected = true;
                     break;
             }
         }
+
+        gotoxy(90, 20);
+        printf("Score: %d", P.score);
 
         drawEnd(selectedItem);
         drawGameDisplay(win);

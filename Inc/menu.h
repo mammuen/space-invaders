@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "stm32f30x.h"
 #include "game.h"
+#include "player.h"
 
 void drawMenu(int selectedItem);
 void drawdiff(int selectedItem);
@@ -20,7 +21,7 @@ void helpMenu(Window win);
 void diffMenu(Window win);
 void delay(uint32_t count);
 void drawTitle();
-void endScreen(Window win);
+void endScreen(Window win, Player P);
 void drawEnd();
 void drawTitleEnd();
 void drawBack();
