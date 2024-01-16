@@ -36,7 +36,7 @@ int main() {
 
 
     //setup
-    uart_init(600000);
+    uart_init(1000000);
 	timerInit();
     joystickinit();
     speakerSetup();
