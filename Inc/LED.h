@@ -13,6 +13,7 @@
 void setLed(int in);
 char readJoystick();
 int setup();
+int ledsetup();
 int readgpioA4();
 int readgpioB0();
 void onRed(int in);

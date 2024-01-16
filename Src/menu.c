@@ -312,6 +312,7 @@ int diffMenu(Window win) {
     }
     clrscr();
     selectMenu(win);
+    return;
 }
 
 
@@ -406,6 +407,7 @@ int selectMenu(Window win){
 
 	        delay(100000);
 	    }
+	    return;
 }
 
 int endScreen(Window win, Player P, int difficulty) {
@@ -447,5 +449,6 @@ int endScreen(Window win, Player P, int difficulty) {
     }
     clrscr();
     selectMenu(win);
+    return 0;
 }
 
