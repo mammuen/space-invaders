@@ -163,8 +163,6 @@ return 0;
 
 void setLed(int in){
 
-
-
 	/* if input is 1 then the red led pulls low turning the led on
 	 * if input is 2 then the blue turns on
 	 * if input is 4 then the green turns on

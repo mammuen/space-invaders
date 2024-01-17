@@ -441,6 +441,8 @@ int endScreen(Window win, Player P, int difficulty) {
 
         gotoxy(90, 20);
         printf("Score: %d", P.score);
+        gotoxy(90, 22);
+        printf("Highscore: %d", flashreadadd(0));
 
         drawEnd(selectedItem);
         drawGameDisplay(win);

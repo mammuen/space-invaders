@@ -17,6 +17,8 @@
 #include "timer.h"
 #include "speaker.h"
 #include "LED.h"
+#include "flash.h"
+
 
 
 
@@ -34,11 +36,11 @@ void TIM1_BRK_TIM15_IRQHandler(void){
 
 int main() {
 
-
+    uart_init(1000000);
+    clrscr();
 
 
     //setup
-    uart_init(1000000);
 	timerInit();
     joystickinit();
     speakerSetup();
@@ -109,6 +111,10 @@ int main() {
 		i--;
 		}
 		setFreq(0);
+
+		if(p1.score > flashreadadd(0)){
+			writeflash(0,p1.score);
+		}
 
 
 		difficulty = endScreen(window,p1,difficulty);
