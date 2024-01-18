@@ -19,83 +19,69 @@
 #include "LED.h"
 #include "flash.h"
 
-
-
-
 int counter = 0;
-
 
 void TIM1_BRK_TIM15_IRQHandler(void){
 	TIM15->SR &= ~(0x0001);
 	counter++;
 }
 
-
-
-
-
 int main() {
 
-    uart_init(1000000);
-    clrscr();
-
+    uart_init(1000000); // Initialiserer UART-kommunikationen med en baudrate på 1000000
+    clrscr(); // Rydder terminalvinduet for tidligere output
 
     //setup
-	timerInit();
-    joystickinit();
-    speakerSetup();
-    Player p1 = {5, 10, 3, 0, 0, 0};
-    // x , y, health ,
-    //score, bullets, powerup
+	timerInit(); // Initialiserer spiltimeren
+    joystickinit();  // Initialiserer joystick-input
+    speakerSetup(); // Opsætter højttaleren til spillyde
+    Player p1 = {5, 10, 3, 0, 0, 0}; // Opretter et Player-objekt med startposition, sundhed, score, antal kugler og power-up status
 
-    setup();
-    ledsetup();
+    setup(); // Kører opsætningsfunktionen for Joystick
+    ledsetup(); // Initialiserer LED-belysning.
 
 
-    hideCursor();
+    hideCursor(); // Skjuler tekstmarkøren/musen på skærmen.
     clrscr();
 
+    // Deklarerer tre funktioner til styring af LED-lys.
     void onRed(int in);
     void onGreen(int in);
     void onBlue(int in);
 
+    // Initialiserer en tæller med værdien 3 for antallet af asteroider.
     uint8_t count = 3;
 
 
-    //variables
+    // Variabler til spilvinduet
     int width = 200;
     int height = 50;
 
 
-
-
     int difficulty;
 
-    Window window = {width, height}; // creates a window struct
+
+    Window window = {width, height}; // Opretter et vindueobjekt med specifikke dimensioner.
     char input;
     char input2;
 
-    clrscr();
-	drawGameDisplay(window);
+    clrscr(); // Rydder skærmen igen og forbereder den til spillet.
+	drawGameDisplay(window); // Tegner spilvinduet.
 	int speed = 4;
 
-
+	// Initialiserer et LCD-display.
 	uint8_t* LCD = initalize_LCD();
 
 
 	while(1) {
 
-
-
-
-
-
-
+		// Hovedspilsløjfe
 
 	if(p1.health < 2){
-		printf("GAME OVER");
+		printf("GAME OVER"); // Viser "GAME OVER" på skærmen på vores SMT32-board, når spilleren løber tør for sundhed.
 		int i = 1000000;
 
+		// Indstiller højttalerfrekvensen til 300 Hz.
 		setFreq(300);
 		while(i){
 			i--;
@@ -103,26 +89,29 @@ int main() {
 		i = 1000000;
 		setFreq(150);
 		while(i){
-		i--;
+			i--;
 		}
 		i = 1000000;
 		setFreq(75);
 		while(i){
-		i--;
+			i--;
 		}
+
+		// Ændrer højttalerfrekvensen for lydeffekter.
 		setFreq(0);
 
+
+		// Gemmer spillerens score i flash-hukommelsen, hvis den er højere end den tidligere gemte score.
 		if(p1.score > flashreadadd(0)){
 			writeflash(0,p1.score);
 		}
 
-
+		// Viser slutskærmen og opdaterer sværhedsgraden.
 		difficulty = endScreen(window,p1,difficulty);
-
-
 
 	} else {
 
+		// Bruger en menu til at vælge sværhedsgraden, hvis spillet ikke er slut.
 	switch(selectMenu(window)){
 		case 1:
 			difficulty = 1;
@@ -139,10 +128,11 @@ int main() {
 	}
 	}
 
-
+	// Initialiserer spilleren.
 	playerinit(&p1);
 
-	//start enemies
+	// Starter fjender, kugler, asteroider og power-ups
+	// Initialiserer spilobjekterne og rydder skærmen.
 	Enemy*  E = initEnemy(difficulty);
 	Bullet* B = initBullets();
 	Asteroid* A = initAsteroid(count);
@@ -150,6 +140,8 @@ int main() {
     clrscr();
 
 	while (p1.health > 0) {
+
+		// Spillet kører, så længe spilleren har sundhed tilbage
 
 		// update game object
 		if(counter%2 == 0){
@@ -164,6 +156,8 @@ int main() {
 			LCDclrline(LCD,2);
 		}
 
+		// Opdaterer og tegner asteroider periodisk.
+
 		if(counter % 100 == 0){
 			clrscr();
 			drawGameDisplay(window);
@@ -171,6 +165,8 @@ int main() {
 			drawAsteroid(A, count);
 
 		}
+
+		// Opdaterer fjender, sundhedsdisplay
 
 		if(counter%(128/speed) == 0){
 		    healthamount(LCD,p1.health);
@@ -183,24 +179,19 @@ int main() {
 		}
 
 
-
-
-
-		// draw game objects
+		// Tegn spilobjekter
 		drawPlayer(p1);
 		drawBullets(B);
 		spawnpowerup(P);
 		drawEnemies(E);
 
 
-
-
-
-
-		//input
+		// Input fra tastatur og joystick
 		input = keyboardinput();
 		input2 = readjoystick();
 
+
+		// Håndterer input fra joystick og udløser skud.
 		if(input2&(0x01)){
 			spawn1Bullet(B,&p1);
 			bulletamount(LCD, p1.bullets+1);
@@ -211,17 +202,17 @@ int main() {
 		}
 
 
-		//collision detection
+		// Kollisionstjek
 		EnemyAsteroidcollision(E,A);
 		BulletAsteroidcollision(B,A,P);
 
+		// Tjekker kollisioner mellem spilobjekter.
 		if(BulletEnemycollision(E,B)){
 			p1.score = p1.score + 10 * (p1.powerup + 1);
 			setScore(LCD,p1.score);
 		}
 		EnemyPlayercollision(E,&p1);
 		PlayerAsteroidPowerupCollision(&p1,A,P);
-
 
 		}
 	}
