@@ -312,7 +312,7 @@ int diffMenu(Window win) {
     }
     clrscr();
     selectMenu(win);
-    return;
+    return 0;
 }
 
 
@@ -407,7 +407,7 @@ int selectMenu(Window win){
 
 	        delay(100000);
 	    }
-	    return;
+	    return 0;
 }
 
 int endScreen(Window win, Player P, int difficulty) {
@@ -442,7 +442,7 @@ int endScreen(Window win, Player P, int difficulty) {
         gotoxy(90, 20);
         printf("Score: %d", P.score);
         gotoxy(90, 22);
-        printf("Highscore: %d", flashreadadd(0));
+        printf("Highscore: %ld", flashreadadd(0));
 
         drawEnd(selectedItem);
         drawGameDisplay(win);

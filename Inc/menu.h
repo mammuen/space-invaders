@@ -13,12 +13,14 @@
 #include "stm32f30x.h"
 #include "game.h"
 #include "player.h"
+#include "flash.h"
+
 
 void drawMenu(int selectedItem);
 void drawdiff(int selectedItem);
 int selectMenu(Window win);
 void helpMenu(Window win);
-int  diffMenu(Window win);
+int diffMenu(Window win);
 void delay(uint32_t count);
 void drawTitle();
 int endScreen(Window win, Player P,int difficulty);

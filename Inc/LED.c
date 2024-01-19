@@ -18,12 +18,7 @@ char readJoystick(){
 		return output;
 }
 
-void onRed(int in);
-void onGreen(int in);
-void onBlue(int in);
-void offRed(int in);
-void offGreen(int in);
-void offBlue(int in);
+
 
 void healthLED(int in){
 
