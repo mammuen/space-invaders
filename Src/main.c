@@ -28,6 +28,13 @@ void TIM1_BRK_TIM15_IRQHandler(void){
 
 int main() {
 
+	// vi tjekker om highscore værdien gemt er reset værdien i ubrugt memory
+	// hvis det er så skriver at highscore skal være lig med 0
+	if(flashreadadd(0) > 65530){
+		writeflash(0,0);
+	}
+
+
     uart_init(1000000); 
     // Initialiserer UART-kommunikationen med en baudrate på 1000000
     clrscr(); // Rydder terminalvinduet for tidligere output
@@ -165,6 +172,7 @@ int main() {
 
 		if(counter % 100 == 0){
 			clrscr();
+			drawStars();
 			drawGameDisplay(window);
 			updateAsteroid(A, count);
 			drawAsteroid(A, count);

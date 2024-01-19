@@ -37,10 +37,9 @@ void hideCursor() {
 }
 
 void drawStars(){
-	// TODO: finish background graphics
 	gotoxy(19, 5);
 	printf("*");
-	gotoxy(15, 39);
+	gotoxy(15, 40);
 	printf("*");
 	gotoxy(26, 40);
 	printf("*");
@@ -52,7 +51,7 @@ void drawStars(){
 	printf("*");
 	gotoxy(22, 41);
 	printf("*");
-	gotoxy(27, 9);
+	gotoxy(27, 12);
 	printf("*");
 	gotoxy(33, 33);
 	printf("*");
@@ -76,7 +75,7 @@ void drawStars(){
 	printf("*");
 	gotoxy(83, 8);
 	printf("*");
-	gotoxy(90, 36);
+	gotoxy(80, 36);
 	printf("*");
 	gotoxy(103, 17);
 	printf("*");
@@ -86,7 +85,7 @@ void drawStars(){
 	printf("*");
 	gotoxy(118, 10);
 	printf("*");
-	gotoxy(123, 5);
+	gotoxy(123, 10);
 	printf("*");
 	gotoxy(130, 32);
 	printf("*");
