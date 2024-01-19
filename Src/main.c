@@ -28,14 +28,16 @@ void TIM1_BRK_TIM15_IRQHandler(void){
 
 int main() {
 
-    uart_init(1000000); // Initialiserer UART-kommunikationen med en baudrate på 1000000
+    uart_init(1000000); 
+    // Initialiserer UART-kommunikationen med en baudrate på 1000000
     clrscr(); // Rydder terminalvinduet for tidligere output
 
     //setup
 	timerInit(); // Initialiserer spiltimeren
     joystickinit();  // Initialiserer joystick-input
     speakerSetup(); // Opsætter højttaleren til spillyde
-    Player p1 = {5, 10, 3, 0, 0, 0}; // Opretter et Player-objekt med startposition, sundhed, score, antal kugler og power-up status
+    Player p1 = {5, 10, 3, 0, 0, 0};
+// Opretter Player med startposition, sundhed, score, antal kugler og power-up
 
     setup(); // Kører opsætningsfunktionen for Joystick
     ledsetup(); // Initialiserer LED-belysning.
@@ -61,7 +63,8 @@ int main() {
     int difficulty;
 
 
-    Window window = {width, height}; // Opretter et vindueobjekt med specifikke dimensioner.
+    Window window = {width, height}; 
+    // Opretter et vindueobjekt med specifikke dimensioner.
     char input;
     char input2;
 
@@ -78,7 +81,8 @@ int main() {
 		// Hovedspilsløjfe
 
 	if(p1.health < 2){
-		printf("GAME OVER"); // Viser "GAME OVER" på skærmen på vores SMT32-board, når spilleren løber tør for sundhed.
+		printf("GAME OVER"); 
+// Viser "GAME OVER" på skærmen på vores SMT32-board, når spilleren løber tør for sundhed.
 		int i = 1000000;
 
 		// Indstiller højttalerfrekvensen til 300 Hz.
@@ -101,7 +105,8 @@ int main() {
 		setFreq(0);
 
 
-		// Gemmer spillerens score i flash-hukommelsen, hvis den er højere end den tidligere gemte score.
+// Gemmer spillerens score i flash-hukommelsen,
+// hvis den er højere end den tidligere gemte score.
 		if(p1.score > flashreadadd(0)){
 			writeflash(0,p1.score);
 		}
@@ -111,7 +116,7 @@ int main() {
 
 	} else {
 
-		// Bruger en menu til at vælge sværhedsgraden, hvis spillet ikke er slut.
+	// Bruger en menu til at vælge sværhedsgraden, hvis spillet ikke er slut.
 	switch(selectMenu(window)){
 		case 1:
 			difficulty = 1;
